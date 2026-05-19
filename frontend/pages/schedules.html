@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowzint | Schedules</title>
+    <script src="../assets/js/guard.js"></script>
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../css/schedules.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Sidebar (Compact 240px wide) -->
+        <aside class="sidebar" style="width: 240px;">
+            <div class="sidebar-brand" style="padding: 16px 20px 12px 20px;">
+                <div class="brand-icon" style="width: 32px; height: 32px; font-size: 1.1rem;"><i class="fa-solid fa-face-smile"></i></div>
+                <div>
+                    <div style="font-weight: 800; font-size: 1.2rem; letter-spacing: -0.5px; color: var(--text-primary); line-height: 1;">flowzint</div>
+                    <div style="font-size: 0.6rem; color: var(--text-tertiary); font-weight: 600; margin-top: 2px;">Creator Operating System</div>
+                </div>
+            </div>
+
+            <div class="sidebar-scroll" style="padding: 8px 12px;">
+                <div class="nav-section">
+                    <div class="nav-label" style="font-size: 0.6rem; padding: 0 8px; margin-bottom: 6px;">Overview</div>
+                    <a href="../dashboard.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-border-all" style="font-size: 0.95rem;"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-gear" style="font-size: 0.95rem;"></i>
+                        <span>Features</span>
+                    </a>
+                    <a href="analytics.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-chart-simple" style="font-size: 0.95rem;"></i>
+                        <span>Analytics</span>
+                    </a>
+                    <a href="content-performance.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-file-video" style="font-size: 0.95rem;"></i>
+                        <span>Content Performance</span>
+                    </a>
+                    <a href="competitors.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-users-viewfinder" style="font-size: 0.95rem;"></i>
+                        <span>Competitors</span>
+                    </a>
+                    <a href="audience-insights.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-chart-pie" style="font-size: 0.95rem;"></i>
+                        <span>Audience Insights</span>
+                    </a>
+                </div>
+
+                <div class="nav-section" style="margin-bottom: 16px;">
+                    <div class="nav-label" style="font-size: 0.6rem; padding: 0 8px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center;">
+                        AI AGENTS
+                        <span class="badge badge-primary" style="font-size: 0.55rem; padding: 1px 4px;">+ New Agent</span>
+                    </div>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-pen-nib" style="font-size: 0.95rem;"></i>
+                        <span>Script Agent</span>
+                    </a>
+                    <a href="proposal-agent.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-file-contract" style="font-size: 0.95rem;"></i>
+                        <span>Proposal Agent</span>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-envelope" style="font-size: 0.95rem;"></i>
+                        <span>Gmail Agent</span>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-calendar-check" style="font-size: 0.95rem;"></i>
+                        <span>Booking Agent</span>
+                    </a>
+                </div>
+
+                <div class="nav-section" style="margin-bottom: 16px;">
+                    <div class="nav-label" style="font-size: 0.6rem; padding: 0 8px; margin-bottom: 6px;">Automation</div>
+                    <a href="#" class="nav-item active" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-calendar-days" style="font-size: 0.95rem;"></i>
+                        <span>Schedules</span>
+                        <i class="fa-solid fa-chevron-right nav-action" style="font-size: 0.65rem;"></i>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-paper-plane" style="font-size: 0.95rem;"></i>
+                        <span>Auto Posting</span>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-wand-magic-sparkles" style="font-size: 0.95rem;"></i>
+                        <span>AI Video Generator</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar-footer" style="padding: 12px 16px;">
+                <div class="card user-card" id="user-menu-btn" style="padding: 6px; box-shadow: none;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="https://ui-avatars.com/api/?name=Creator&background=6338f0&color=fff" style="width: 32px; height: 32px;" alt="User">
+                        <div>
+                            <div style="font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; gap: 4px;" id="user-email">Creator Pro <i class="fa-solid fa-circle-check" style="color: var(--primary); font-size: 0.65rem;"></i></div>
+                            <div style="font-size: 0.65rem; color: var(--text-tertiary); font-weight: 500;">Pro Plan</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; color: var(--text-tertiary);"></i>
+                </div>
+                <div class="storage-widget" style="margin-top: 10px;">
+                    <div style="font-size: 0.65rem; font-weight: 600; color: var(--text-secondary);">Storage Used</div>
+                    <div class="progress-bar" style="height: 4px; margin: 4px 0;"><div class="progress-fill"></div></div>
+                    <div style="font-size: 0.6rem; color: var(--text-tertiary); font-weight: 600; text-align: center;">72% (72GB / 100GB)</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Wrapper -->
+        <main class="main-wrapper">
+            
+            <!-- Top Navbar (Centered Grid Containment) -->
+            <header class="topbar" style="height: 70px;">
+                <div class="topbar-container" style="padding: 0 24px;">
+                    <div class="search-bar" style="padding: 6px 16px; width: 340px; height: 38px;">
+                        <i class="fa-solid fa-search" style="font-size: 0.8rem;"></i>
+                        <input type="text" placeholder="Search insights, videos, keywords..." style="font-size: 0.8rem;">
+                        <span class="badge badge-primary" style="font-size: 0.6rem; padding: 1px 6px;">⌘ K</span>
+                    </div>
+
+                    <div class="topbar-actions" style="gap: 12px;">
+                        <div class="icon-btn" style="width: 36px; height: 36px; font-size: 0.95rem;">
+                            <i class="fa-regular fa-bell"></i>
+                            <div class="notification-dot" style="width: 8px; height: 8px;"></div>
+                        </div>
+                        <div class="icon-btn" style="width: 36px; height: 36px; font-size: 0.95rem;">
+                            <i class="fa-regular fa-calendar"></i>
+                        </div>
+                        <button class="btn btn-primary" style="padding: 8px 16px; height: 38px; font-size: 0.8rem; border-radius: var(--radius-md);">
+                            <i class="fa-solid fa-plus"></i> New Campaign
+                        </button>
+                        <img src="https://ui-avatars.com/api/?name=Creator&background=6338f0&color=fff" style="width: 34px; height: 34px; border-radius: 50%; box-shadow: var(--shadow-sm);" alt="Avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content Scroll -->
+            <div class="dashboard-content" style="padding: 20px 24px;">
+                <div class="dashboard-container">
+                    
+                    <!-- Layout Grid Proportions (True 3-Column Parallel Grid, Sidebar locked to 320px) -->
+                    <div class="dashboard-layout" style="grid-template-columns: 1fr 320px; gap: 20px;">
+                        
+                        <!-- 1. Middle Column (Main Content Area) -->
+                        <div class="main-column" style="gap: 20px;">
+                            
+                            <!-- Hero Section with Page Header Row -->
+                            <div class="content-performance-hero" style="margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                <div class="performance-header-left" style="display: flex; align-items: center; gap: 14px;">
+                                    <div class="performance-icon-block" style="width: 42px; height: 42px; background: var(--primary-bg); color: var(--primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.15rem;">
+                                        <i class="fa-regular fa-calendar-days"></i>
+                                    </div>
+                                    <div>
+                                        <h1 class="heading-xl" style="margin: 0; line-height: 1.1; font-size: 1.45rem; font-weight: 800; color: var(--text-primary);">Schedules</h1>
+                                        <p class="text-sm" style="margin-top: 2px; font-weight: 500; font-size: 0.785rem; color: var(--text-secondary);">Plan and manage your content schedule in one place.</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 10px; align-items: center;">
+                                    <div class="date-picker" style="padding: 8px 12px; font-size: 0.75rem; border: 1px solid var(--border-medium); border-radius: var(--radius-md); display: flex; align-items: center; gap: 8px; background: var(--bg-surface);">
+                                        <i class="fa-regular fa-calendar" style="color: var(--text-secondary);"></i> May 16 – Jun 15, 2025 <i class="fa-solid fa-chevron-down" style="color: var(--text-tertiary); font-size: 0.65rem; margin-left: 6px;"></i>
+                                    </div>
+                                    <button class="btn btn-secondary" style="padding: 8px 16px; border-radius: var(--radius-md); font-size: 0.75rem; font-weight: 700; height: 36px; border: 1px solid var(--border-medium); background: var(--bg-surface); display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                        <i class="fa-solid fa-filter"></i> Filter
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Top Navigation Tabs (Under Header) -->
+                            <div class="schedules-tabs-row">
+                                <span class="schedules-tab-item active">Calendar View</span>
+                                <span class="schedules-tab-item">List View</span>
+                                <span class="schedules-tab-item">Queue</span>
+                                <span class="schedules-tab-item">Drafts</span>
+                            </div>
+
+                            <!-- 4 Metric Cards Grid -->
+                            <div class="schedules-metrics-grid">
+                                
+                                <!-- Card 1: Upcoming Posts -->
+                                <div class="schedules-metric-card">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                        <div class="metric-card-icon-wrapper" style="background: rgba(99, 56, 240, 0.05); color: var(--primary);"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                                        <span style="font-size: 0.725rem; font-weight: 700; color: var(--text-tertiary);">Upcoming Posts</span>
+                                    </div>
+                                    <div class="metric-card-value">18</div>
+                                    <span style="font-size: 0.65rem; color: var(--text-secondary); font-weight: 600;">Next 7 days</span>
+                                </div>
+
+                                <!-- Card 2: This Week -->
+                                <div class="schedules-metric-card">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                        <div class="metric-card-icon-wrapper" style="background: rgba(16, 185, 129, 0.05); color: #10b981;"><i class="fa-regular fa-calendar-check"></i></div>
+                                        <span style="font-size: 0.725rem; font-weight: 700; color: var(--text-tertiary);">This Week</span>
+                                    </div>
+                                    <div class="metric-card-value">7</div>
+                                    <span style="font-size: 0.65rem; color: var(--text-secondary); font-weight: 600;">May 12 – May 18</span>
+                                </div>
+
+                                <!-- Card 3: This Month -->
+                                <div class="schedules-metric-card">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                        <div class="metric-card-icon-wrapper" style="background: rgba(245, 158, 11, 0.05); color: #f59e0b;"><i class="fa-regular fa-calendar-days"></i></div>
+                                        <span style="font-size: 0.725rem; font-weight: 700; color: var(--text-tertiary);">This Month</span>
+                                    </div>
+                                    <div class="metric-card-value">24</div>
+                                    <span style="font-size: 0.65rem; color: var(--text-secondary); font-weight: 600;">May 1 – May 31</span>
+                                </div>
+
+                                <!-- Card 4: Drafts -->
+                                <div class="schedules-metric-card">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                        <div class="metric-card-icon-wrapper" style="background: rgba(59, 130, 246, 0.05); color: #3b82f6;"><i class="fa-regular fa-file-lines"></i></div>
+                                        <span style="font-size: 0.725rem; font-weight: 700; color: var(--text-tertiary);">Drafts</span>
+                                    </div>
+                                    <div class="metric-card-value">12</div>
+                                    <span style="font-size: 0.65rem; color: var(--text-secondary); font-weight: 600;">Unpublished</span>
+                                </div>
+
+                            </div>
+
+                            <!-- Large Content Scheduling Table Card -->
+                            <div class="schedules-table-card">
+                                <table class="schedules-data-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 18%;">Date &amp; Time <i class="fa-regular fa-clock" style="font-size: 0.65rem; margin-left: 2px;"></i></th>
+                                            <th style="width: 44%;">Content</th>
+                                            <th style="width: 14%;">Platform</th>
+                                            <th style="width: 12%;">Status</th>
+                                            <th style="width: 8%;">Type</th>
+                                            <th style="width: 4%;">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        <!-- Group Header 1: Today -->
+                                        <tr class="day-header-row">
+                                            <td colspan="6">Today &ndash; May 16, 2025</td>
+                                        </tr>
+                                        
+                                        <!-- Row 1 -->
+                                        <tr>
+                                            <td>
+                                                <div class="time-cell">
+                                                    <span class="time-main">10:00 AM</span>
+                                                    <span class="time-sub">Fri, May 16</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="content-cell">
+                                                    <img class="content-thumbnail" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=120" alt="Thumb">
+                                                    <span class="content-title">5 Editing Tricks That Instantly Make YouTube Videos Better</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="platform-cell">
+                                                    <div class="platform-logo-circle" style="background: #ef4444;"><i class="fa-brands fa-youtube"></i></div>
+                                                    YouTube
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="status-badge-scheduled">Scheduled</span>
+                                            </td>
+                                            <td>
+                                                <span class="type-badge">Video</span>
+                                            </td>
+                                            <td>
+                                                <div class="actions-cell">
+                                                    <i class="fa-solid fa-pen"></i>
+                                                    <i class="fa-regular fa-copy"></i>
+                                                    <i class="fa-solid fa-ellipsis"></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Row 2 -->
+                                        <tr>
+                                            <td>
+                                                <div class="time-cell">
+                                                    <span class="time-main">03:00 PM</span>
+                                                    <span class="time-sub">Fri, May 16</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="content-cell">
+                                                    <img class="content-thumbnail" src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=120" alt="Thumb">
+                                                    <span class="content-title">How I Plan My Content (Behind the Scenes)</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="platform-cell">
+                                                    <div class="platform-logo-circle" style="background: linear-gradient(135deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);"><i class="fa-brands fa-instagram"></i></div>
+                                                    Instagram
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="status-badge-scheduled">Scheduled</span>
+                                            </td>
+                                            <td>
+                                                <span class="type-badge">Short</span>
+                                            </td>
+                                            <td>
+                                                <div class="actions-cell">
+                                                    <i class="fa-solid fa-pen"></i>
+                                                    <i class="fa-regular fa-copy"></i>
+                                                    <i class="fa-solid fa-ellipsis"></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Group Header 2: Tomorrow -->
+                                        <tr class="day-header-row">
+                                            <td colspan="6">Tomorrow &ndash; May 17, 2025</td>
+                                        </tr>
+
+                                        <!-- Row 3 -->
+                                        <tr>
+                                            <td>
+                                                <div class="time-cell">
+                                                    <span class="time-main">11:00 AM</span>
+                                                    <span class="time-sub">Sat, May 17</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="content-cell">
+                                                    <img class="content-thumbnail" src="https://images.unsplash.com/photo-1626379616459-b2ce1d9decbc?q=80&w=120" alt="Thumb">
+                                                    <span class="content-title">Best YouTube Title Formulas That Actually Get Views</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="platform-cell">
+                                                    <div class="platform-logo-circle" style="background: #ef4444;"><i class="fa-brands fa-youtube"></i></div>
+                                                    YouTube
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="status-badge-scheduled">Scheduled</span>
+                                            </td>
+                                            <td>
+                                                <span class="type-badge">Video</span>
+                                            </td>
+                                            <td>
+                                                <div class="actions-cell">
+                                                    <i class="fa-solid fa-pen"></i>
+                                                    <i class="fa-regular fa-copy"></i>
+                                                    <i class="fa-solid fa-ellipsis"></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Row 4 -->
+                                        <tr>
+                                            <td>
+                                                <div class="time-cell">
+                                                    <span class="time-main">06:00 PM</span>
+                                                    <span class="time-sub">Sat, May 17</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="content-cell">
+                                                    <img class="content-thumbnail" src="https://images.unsplash.com/photo-1547082299-de196ea013d6?q=80&w=120" alt="Thumb">
+                                                    <span class="content-title">My Desk Setup for Maximum Productivity</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="platform-cell">
+                                                    <div class="platform-logo-circle" style="background: #111827;"><i class="fa-brands fa-x-twitter"></i></div>
+                                                    X (Twitter)
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="status-badge-scheduled">Scheduled</span>
+                                            </td>
+                                            <td>
+                                                <span class="type-badge">Post</span>
+                                            </td>
+                                            <td>
+                                                <div class="actions-cell">
+                                                    <i class="fa-solid fa-pen"></i>
+                                                    <i class="fa-regular fa-copy"></i>
+                                                    <i class="fa-solid fa-ellipsis"></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Group Header 3: May 18 -->
+                                        <tr class="day-header-row">
+                                            <td colspan="6">May 18, 2025</td>
+                                        </tr>
+
+                                        <!-- Row 5 -->
+                                        <tr>
+                                            <td>
+                                                <div class="time-cell">
+                                                    <span class="time-main">09:00 AM</span>
+                                                    <span class="time-sub">Sun, May 17</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="content-cell">
+                                                    <img class="content-thumbnail" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=120" alt="Thumb">
+                                                    <span class="content-title">Content Ideas You Can Create in 10 Minutes</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="platform-cell">
+                                                    <div class="platform-logo-circle" style="background: #111827;"><i class="fa-brands fa-tiktok"></i></div>
+                                                    TikTok
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="status-badge-scheduled">Scheduled</span>
+                                            </td>
+                                            <td>
+                                                <span class="type-badge">Short</span>
+                                            </td>
+                                            <td>
+                                                <div class="actions-cell">
+                                                    <i class="fa-solid fa-pen"></i>
+                                                    <i class="fa-regular fa-copy"></i>
+                                                    <i class="fa-solid fa-ellipsis"></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Row 6 -->
+                                        <tr>
+                                            <td>
+                                                <div class="time-cell">
+                                                    <span class="time-main">07:30 PM</span>
+                                                    <span class="time-sub">Sun, May 17</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="content-cell">
+                                                    <img class="content-thumbnail" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=120" alt="Thumb">
+                                                    <span class="content-title">Sunday Reset: Plan Your Week Like a Pro</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="platform-cell">
+                                                    <div class="platform-logo-circle" style="background: linear-gradient(135deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);"><i class="fa-brands fa-instagram"></i></div>
+                                                    Instagram
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="status-badge-scheduled">Scheduled</span>
+                                            </td>
+                                            <td>
+                                                <span class="type-badge">Post</span>
+                                            </td>
+                                            <td>
+                                                <div class="actions-cell">
+                                                    <i class="fa-solid fa-pen"></i>
+                                                    <i class="fa-regular fa-copy"></i>
+                                                    <i class="fa-solid fa-ellipsis"></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Bottom View Full Calendar CTA Button -->
+                            <div class="schedules-bottom-cta-wrap">
+                                <button class="btn-view-full-calendar">
+                                    <i class="fa-regular fa-calendar-days"></i> View Full Calendar &rarr;
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <!-- 2. Right Sidebar (Content Queues & Quick Actions - 320px wide) -->
+                        <aside class="right-sidebar" style="width: 320px; display: flex; flex-direction: column; gap: 20px;">
+                            
+                            <!-- Content Queues widget -->
+                            <div class="content-queues-card">
+                                <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <h3 style="font-size: 0.85rem; font-weight: 800; color: var(--text-primary);">Content Queues</h3>
+                                </div>
+                                <div class="queue-items-list">
+                                    <div class="queue-item-row"><span class="queue-item-name">YouTube Videos</span><span class="queue-item-count">8</span></div>
+                                    <div class="queue-item-row"><span class="queue-item-name">YouTube Shorts</span><span class="queue-item-count">6</span></div>
+                                    <div class="queue-item-row"><span class="queue-item-name">Instagram Posts</span><span class="queue-item-count">5</span></div>
+                                    <div class="queue-item-row"><span class="queue-item-name">Instagram Reels</span><span class="queue-item-count">7</span></div>
+                                    <div class="queue-item-row"><span class="queue-item-name">TikTok Videos</span><span class="queue-item-count">6</span></div>
+                                    <div class="queue-item-row"><span class="queue-item-name">X (Twitter) Posts</span><span class="queue-item-count">4</span></div>
+                                </div>
+                                <a href="#" class="view-all" style="font-size: 0.725rem; font-weight: 700; margin-top: 14px; text-decoration: none; color: var(--primary);">Manage Queues &rarr;</a>
+                            </div>
+
+                            <!-- Quick Actions Widget -->
+                            <div class="quick-actions-card">
+                                <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 12px;">
+                                    <h3 style="font-size: 0.85rem; font-weight: 800; color: var(--text-primary);">Quick Actions</h3>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 10px;">
+                                    
+                                    <!-- Action 1 -->
+                                    <div class="quick-action-item">
+                                        <div class="quick-action-left">
+                                            <div class="quick-action-icon-wrap"><i class="fa-solid fa-plus"></i></div>
+                                            <div class="quick-action-info">
+                                                <span class="quick-action-title">Create New Post</span>
+                                                <span class="quick-action-sub">Design content for any platform</span>
+                                            </div>
+                                        </div>
+                                        <i class="fa-solid fa-plus" style="font-size: 0.65rem; color: var(--text-tertiary);"></i>
+                                    </div>
+
+                                    <!-- Action 2 -->
+                                    <div class="quick-action-item">
+                                        <div class="quick-action-left">
+                                            <div class="quick-action-icon-wrap" style="color: #db2777; background: rgba(219, 39, 119, 0.05);"><i class="fa-regular fa-calendar-days"></i></div>
+                                            <div class="quick-action-info">
+                                                <span class="quick-action-title">Bulk Schedule</span>
+                                                <span class="quick-action-sub">Schedule multiple posts</span>
+                                            </div>
+                                        </div>
+                                        <i class="fa-solid fa-chevron-right" style="font-size: 0.65rem; color: var(--text-tertiary);"></i>
+                                    </div>
+
+                                    <!-- Action 3 -->
+                                    <div class="quick-action-item">
+                                        <div class="quick-action-left">
+                                            <div class="quick-action-icon-wrap" style="color: #3b82f6; background: rgba(59, 130, 246, 0.05);"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                                            <div class="quick-action-info">
+                                                <span class="quick-action-title">Import Content</span>
+                                                <span class="quick-action-sub">Import ideas or content</span>
+                                            </div>
+                                        </div>
+                                        <i class="fa-solid fa-chevron-right" style="font-size: 0.65rem; color: var(--text-tertiary);"></i>
+                                    </div>
+
+                                    <!-- Action 4 -->
+                                    <div class="quick-action-item">
+                                        <div class="quick-action-left">
+                                            <div class="quick-action-icon-wrap" style="color: #ea580c; background: rgba(234, 88, 12, 0.05);"><i class="fa-regular fa-lightbulb"></i></div>
+                                            <div class="quick-action-info">
+                                                <span class="quick-action-title">Content Ideas</span>
+                                                <span class="quick-action-sub">Get AI-powered content ideas</span>
+                                            </div>
+                                        </div>
+                                        <i class="fa-solid fa-chevron-right" style="font-size: 0.65rem; color: var(--text-tertiary);"></i>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </aside>
+
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Circular Floating Chatbot (Exact Bot Icon + Antennas) -->
+    <div class="schedules-floating-chatbot" id="schedules-chatbot-trigger">
+        <i class="fa-solid fa-robot"></i>
+        <div class="schedules-floating-chatbot-glow"></div>
+    </div>
+
+    <div class="chatbot-popup glass-panel" id="chatbot-popup">
+        <div class="chatbot-header">
+            <div class="chatbot-avatar"><i class="fa-solid fa-robot"></i></div>
+            <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Flowzint AI</div>
+                <div style="font-size: 0.75rem; opacity: 0.9;">System Online</div>
+            </div>
+            <i class="fa-solid fa-xmark" id="chatbot-close" style="cursor: pointer; margin-left: auto; font-size: 1.2rem;"></i>
+        </div>
+        <div class="chatbot-body">
+            <div class="chat-message ai">Welcome to Schedules Management! I have successfully loaded your automated queue and sorted upcoming posts. Select quick actions to schedule bulk batches or import assets.</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Ask Flowzint AI...">
+            <button><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../js/schedules.js"></script>
+</body>
+</html>

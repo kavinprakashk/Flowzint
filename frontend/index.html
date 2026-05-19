@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowzint AI | System Initialization</title>
+    <script src="assets/js/guard.js"></script>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .splash-screen {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .logo-large {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
+            text-shadow: 0 0 30px var(--primary-glow);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            margin-bottom: 48px;
+            max-width: 600px;
+        }
+
+        .enter-btn {
+            font-size: 1.2rem;
+            padding: 16px 40px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-bg"></div>
+
+    <div class="splash-screen animate-fade-in">
+        <i class="fa-solid fa-network-wired" style="font-size: 4rem; color: var(--primary-neon); margin-bottom: 24px; text-shadow: 0 0 20px var(--primary-glow);"></i>
+        <div class="logo-large text-gradient">Flowzint AI</div>
+        <div class="tagline">Parasitic AI Social Media Infrastructure & Agent Swarm Orchestration</div>
+        
+        <a href="login.html" style="text-decoration: none;">
+            <button class="btn-primary enter-btn">
+                INITIALIZE CONNECTION <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </a>
+    </div>
+</body>
+</html>
