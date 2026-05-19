@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowzint AI | Register Identity</title>
+    <!-- Route guard -->
+    <script src="assets/js/guard.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Soft ambient background blobs -->
+    <div class="ambient-bg">
+        <div class="blob-1"></div>
+        <div class="blob-2"></div>
+    </div>
+
+    <div class="auth-wrapper">
+        <div class="auth-container glass-panel">
+            
+            <div class="auth-header">
+                <div class="auth-logo-icon">
+                    <i class="fa-solid fa-face-smile"></i>
+                </div>
+                <h1 class="auth-logo">flowzint</h1>
+                <div class="auth-subtitle">Initialize your agent network infrastructure.</div>
+            </div>
+
+            <div id="registerError" class="auth-error">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span id="errorText"></span>
+            </div>
+            
+            <div id="registerSuccess" class="auth-success">
+                <i class="fa-solid fa-circle-check"></i>
+                <span id="successText"></span>
+            </div>
+
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="email">Identity (Email)</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-envelope input-icon-left"></i>
+                        <input type="email" id="email" class="input-glass" required placeholder="agent@flowzint.ai">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Security Key (Password)</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock input-icon-left"></i>
+                        <input type="password" id="password" class="input-glass" required placeholder="••••••••" minlength="6">
+                        <button type="button" class="password-toggle" id="passwordToggle" aria-label="Toggle Password Visibility">
+                            <i class="fa-regular fa-eye" id="eyeIcon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="auth-btn" id="registerBtn">
+                    REGISTER IDENTITY <i class="fa-solid fa-user-plus" style="margin-left: 4px;"></i>
+                </button>
+            </form>
+
+            <div class="auth-divider">SECURE CREATOR NODE</div>
+
+            <!-- Request identity card -->
+            <div class="identity-card">
+                <div class="identity-card-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="identity-card-text">
+                    Credentials are securely mediated and stored using encrypted tokens inside industrial-grade backend databases.
+                </div>
+            </div>
+
+            <div class="auth-footer">
+                Protocol active? <a href="login.html">Resume Session</a>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const registerForm = document.getElementById('registerForm');
+            const passwordInput = document.getElementById('password');
+            const passwordToggle = document.getElementById('passwordToggle');
+            const eyeIcon = document.getElementById('eyeIcon');
+            
+            // Password Show/Hide Toggle Logic
+            passwordToggle.addEventListener('click', () => {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    eyeIcon.classList.remove('fa-regular', 'fa-eye');
+                    eyeIcon.classList.add('fa-regular', 'fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    eyeIcon.classList.remove('fa-regular', 'fa-eye-slash');
+                    eyeIcon.classList.add('fa-regular', 'fa-eye');
+                }
+            });
+
+            registerForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const btn = document.getElementById('registerBtn');
+                const errorDiv = document.getElementById('registerError');
+                const errorText = document.getElementById('errorText');
+                const successDiv = document.getElementById('registerSuccess');
+                const successText = document.getElementById('successText');
+                
+                btn.innerHTML = 'TRANSMITTING... <i class="fa-solid fa-spinner fa-spin" style="margin-left: 4px;"></i>';
+                btn.style.pointerEvents = 'none';
+                errorDiv.style.display = 'none';
+                successDiv.style.display = 'none';
+
+                try {
+                    await Auth.register(email, password);
+                    successText.textContent = 'Identity registered. Redirecting to login session...';
+                    successDiv.style.display = 'flex';
+                    
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 1800);
+                } catch (err) {
+                    errorText.textContent = err.message || 'Registration transmission failed.';
+                    errorDiv.style.display = 'flex';
+                    btn.innerHTML = 'REGISTER IDENTITY <i class="fa-solid fa-user-plus" style="margin-left: 4px;"></i>';
+                    btn.style.pointerEvents = 'auto';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

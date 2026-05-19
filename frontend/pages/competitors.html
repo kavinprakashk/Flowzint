@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowzint | Competitor Intelligence</title>
+    <script src="../assets/js/guard.js"></script>
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../css/competitors.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Sidebar (Compact 240px wide) -->
+        <aside class="sidebar" style="width: 240px;">
+            <div class="sidebar-brand" style="padding: 16px 20px 12px 20px;">
+                <div class="brand-icon" style="width: 32px; height: 32px; font-size: 1.1rem;"><i class="fa-solid fa-face-smile"></i></div>
+                <div>
+                    <div style="font-weight: 800; font-size: 1.2rem; letter-spacing: -0.5px; color: var(--text-primary); line-height: 1;">flowzint</div>
+                    <div style="font-size: 0.6rem; color: var(--text-tertiary); font-weight: 600; margin-top: 2px;">Creator Operating System</div>
+                </div>
+            </div>
+
+            <div class="sidebar-scroll" style="padding: 8px 12px;">
+                <div class="nav-section">
+                    <div class="nav-label" style="font-size: 0.6rem; padding: 0 8px; margin-bottom: 6px;">Overview</div>
+                    <a href="../dashboard.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-border-all" style="font-size: 0.95rem;"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-gear" style="font-size: 0.95rem;"></i>
+                        <span>Features</span>
+                    </a>
+                    <a href="analytics.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-chart-simple" style="font-size: 0.95rem;"></i>
+                        <span>Analytics</span>
+                    </a>
+                    <a href="content-performance.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-file-video" style="font-size: 0.95rem;"></i>
+                        <span>Content Performance</span>
+                    </a>
+                    <a href="#" class="nav-item active" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-users-viewfinder" style="font-size: 0.95rem;"></i>
+                        <span>Competitors</span>
+                        <i class="fa-solid fa-chevron-right nav-action" style="font-size: 0.65rem;"></i>
+                    </a>
+                    <a href="audience-insights.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-chart-pie" style="font-size: 0.95rem;"></i>
+                        <span>Audience Insights</span>
+                    </a>
+                </div>
+
+                <div class="nav-section" style="margin-bottom: 16px;">
+                    <div class="nav-label" style="font-size: 0.6rem; padding: 0 8px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center;">
+                        AI AGENTS
+                        <span class="badge badge-primary" style="font-size: 0.55rem; padding: 1px 4px;">+ New Agent</span>
+                    </div>
+                    <a href="script-agent.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-pen-nib" style="font-size: 0.95rem;"></i>
+                        <span>Script Agent</span>
+                    </a>
+                    <a href="proposal-agent.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-file-contract" style="font-size: 0.95rem;"></i>
+                        <span>Proposal Agent</span>
+                    </a>
+                    <a href="gmail-agent.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-envelope" style="font-size: 0.95rem;"></i>
+                        <span>Gmail Agent</span>
+                    </a>
+                    <a href="booking-agent.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-calendar-check" style="font-size: 0.95rem;"></i>
+                        <span>Booking Agent</span>
+                    </a>
+                </div>
+
+                <div class="nav-section" style="margin-bottom: 16px;">
+                    <div class="nav-label" style="font-size: 0.6rem; padding: 0 8px; margin-bottom: 6px;">Automation</div>
+                    <a href="schedules.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-calendar-days" style="font-size: 0.95rem;"></i>
+                        <span>Schedules</span>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-paper-plane" style="font-size: 0.95rem;"></i>
+                        <span>Auto Posting</span>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-wand-magic-sparkles" style="font-size: 0.95rem;"></i>
+                        <span>AI Video Generator</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar-footer" style="padding: 12px 16px;">
+                <div class="card user-card" id="user-menu-btn" style="padding: 6px; box-shadow: none;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="https://ui-avatars.com/api/?name=Creator&background=6338f0&color=fff" style="width: 32px; height: 32px;" alt="User">
+                        <div>
+                            <div style="font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; gap: 4px;" id="user-email">Creator Pro <i class="fa-solid fa-circle-check" style="color: var(--primary); font-size: 0.65rem;"></i></div>
+                            <div style="font-size: 0.65rem; color: var(--text-tertiary); font-weight: 500;">Pro Plan</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; color: var(--text-tertiary);"></i>
+                </div>
+                <div class="storage-widget" style="margin-top: 10px;">
+                    <div style="font-size: 0.65rem; font-weight: 600; color: var(--text-secondary);">Storage Used</div>
+                    <div class="progress-bar" style="height: 4px; margin: 4px 0;"><div class="progress-fill"></div></div>
+                    <div style="font-size: 0.6rem; color: var(--text-tertiary); font-weight: 600; text-align: center;">72% (72GB / 100GB)</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Wrapper -->
+        <main class="main-wrapper">
+            
+            <!-- Top Navbar (Centered Grid Containment) -->
+            <header class="topbar" style="height: 70px;">
+                <div class="topbar-container" style="padding: 0 24px;">
+                    <div class="search-bar" style="padding: 6px 16px; width: 340px; height: 38px;">
+                        <i class="fa-solid fa-search" style="font-size: 0.8rem;"></i>
+                        <input type="text" placeholder="Search insights, videos, keywords..." style="font-size: 0.8rem;">
+                        <span class="badge badge-primary" style="font-size: 0.6rem; padding: 1px 6px;">⌘ K</span>
+                    </div>
+
+                    <div class="topbar-actions" style="gap: 12px;">
+                        <div class="icon-btn" style="width: 36px; height: 36px; font-size: 0.95rem;">
+                            <i class="fa-regular fa-bell"></i>
+                            <div class="notification-dot" style="width: 8px; height: 8px;"></div>
+                        </div>
+                        <div class="icon-btn" style="width: 36px; height: 36px; font-size: 0.95rem;">
+                            <i class="fa-regular fa-calendar"></i>
+                        </div>
+                        <button class="btn btn-primary" style="padding: 8px 16px; height: 38px; font-size: 0.8rem; border-radius: var(--radius-md);">
+                            <i class="fa-solid fa-plus"></i> New Campaign
+                        </button>
+                        <img src="https://ui-avatars.com/api/?name=Creator&background=6338f0&color=fff" style="width: 34px; height: 34px; border-radius: 50%; box-shadow: var(--shadow-sm);" alt="Avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content Scroll -->
+            <div class="dashboard-content" style="padding: 20px 24px;">
+                <div class="dashboard-container">
+                    
+                    <!-- Layout Grid Containment (True 3-Column Parallel Grid, Sidebar locked to 320px) -->
+                    <div class="dashboard-layout" style="grid-template-columns: 1fr 320px; gap: 20px;">
+                        
+                        <!-- 1. Middle Column (Main Content Area) -->
+                        <div class="main-column" style="gap: 20px;">
+                            
+                            <!-- Hero Section with Competitors Icon Block -->
+                            <div class="content-performance-hero" style="margin-bottom: 12px;">
+                                <div class="performance-header-left">
+                                    <div class="performance-icon-block">
+                                        <i class="fa-solid fa-users-viewfinder"></i>
+                                    </div>
+                                    <div>
+                                        <h1 class="heading-xl" style="margin: 0; line-height: 1.1; font-size: 1.5rem; font-weight: 800;">Competitors</h1>
+                                        <p class="text-sm" style="margin-top: 2px; font-weight: 500; font-size: 0.8rem; color: var(--text-secondary);">Analyze your competitors and discover opportunities to grow faster.</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 10px;">
+                                    <div class="date-picker" style="padding: 8px 12px; font-size: 0.75rem;">
+                                        <i class="fa-regular fa-calendar" style="color: var(--text-secondary);"></i> May 16 - Jun 15, 2025 <i class="fa-solid fa-chevron-down" style="color: var(--text-tertiary); font-size: 0.65rem; margin-left: 6px;"></i>
+                                    </div>
+                                    <button class="btn-export-report btn-secondary" style="padding: 8px 16px; display: flex; align-items: center; gap: 8px; border-radius: var(--radius-md); font-size: 0.75rem; font-weight: 700; height: 38px; border: 1px solid var(--border-medium); background: var(--bg-surface); cursor: pointer; transition: all 0.2s;">
+                                        <i class="fa-solid fa-arrow-up-from-bracket"></i> Export Report
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Top Navigation Tabs (Under Header) -->
+                            <div class="competitors-tabs-row">
+                                <span class="tab-nav-item active">Overview</span>
+                                <span class="tab-nav-item">Top Videos</span>
+                                <span class="tab-nav-item">Content Strategy</span>
+                                <span class="tab-nav-item">Audience</span>
+                                <span class="tab-nav-item">Tags &amp; Keywords</span>
+                                <span class="tab-nav-item">Upload Patterns</span>
+                                <span class="tab-nav-item">Compare</span>
+                            </div>
+
+                            <!-- 5 KPI Metric Cards -->
+                            <div class="competitors-kpi-grid">
+                                
+                                <!-- Card 1: Competitors Tracked -->
+                                <div class="card kpi-card" style="padding: 12px 14px; min-height: 110px; gap: 6px; display: flex; flex-direction: column; justify-content: space-between;">
+                                    <div class="kpi-header" style="font-size: 0.7rem; gap: 6px; font-weight: 700; color: var(--text-tertiary);">
+                                        <div class="pref-icon-wrapper" style="background: var(--primary-bg); color: var(--primary); width: 18px; height: 18px; font-size: 0.6rem;"><i class="fa-solid fa-users"></i></div>
+                                        Competitors Tracked
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%;">
+                                        <div style="display: flex; flex-direction: column;">
+                                            <span style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); line-height: 1.1;">5</span>
+                                            <span style="font-size: 0.65rem; color: var(--text-secondary); font-weight: 600;">Active Channels</span>
+                                        </div>
+                                        <div class="kpi-radar-icon" style="opacity: 0.75;"><i class="fa-solid fa-user-group" style="font-size: 1.25rem;"></i></div>
+                                    </div>
+                                    <div style="font-size: 0.6rem; color: var(--success); font-weight: 700; margin-top: -2px;">+11% this month</div>
+                                </div>
+
+                                <!-- Card 2: Avg. Views (Competitors) -->
+                                <div class="card kpi-card" style="padding: 12px 14px; min-height: 110px; display: flex; flex-direction: column; justify-content: space-between;">
+                                    <div class="kpi-header" style="font-size: 0.7rem; gap: 6px; font-weight: 700; color: var(--text-tertiary);">
+                                        <div class="pref-icon-wrapper" style="background: #ecfdf5; color: #10b981; width: 18px; height: 18px; font-size: 0.6rem;"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                                        Avg. Views (Competitors)
+                                    </div>
+                                    <div style="display: flex; align-items: baseline; gap: 4px; margin-top: 4px;">
+                                        <span style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary);">1.25M</span>
+                                        <span style="font-size: 0.6rem; color: var(--text-secondary); font-weight: 600;">Per Video</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%; margin-top: 6px;">
+                                        <div style="display: flex; flex-direction: column;">
+                                            <span style="font-size: 0.6rem; color: var(--success); font-weight: 700;"><i class="fa-solid fa-arrow-up"></i> 18.6%</span>
+                                            <span style="font-size: 0.55rem; color: var(--text-tertiary); font-weight: 500; margin-top: 1px;">vs last 30 days</span>
+                                        </div>
+                                        <div class="micro-sparkline-green-competitor"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3: Top Performing Views -->
+                                <div class="card kpi-card" style="padding: 12px 14px; min-height: 110px; display: flex; flex-direction: column; justify-content: space-between;">
+                                    <div class="kpi-header" style="font-size: 0.7rem; gap: 6px; font-weight: 700; color: var(--text-tertiary);">
+                                        <div class="pref-icon-wrapper" style="background: #fff7ed; color: #ea580c; width: 18px; height: 18px; font-size: 0.6rem;"><i class="fa-solid fa-trophy"></i></div>
+                                        Top Performing Views
+                                    </div>
+                                    <div style="display: flex; align-items: baseline; gap: 4px; margin-top: 4px;">
+                                        <span style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary);">3.8M</span>
+                                        <span style="font-size: 0.6rem; color: var(--text-secondary); font-weight: 600;">Views (TechWiz)</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%; margin-top: 6px;">
+                                        <div style="display: flex; flex-direction: column;">
+                                            <span style="font-size: 0.6rem; color: var(--text-primary); font-weight: 700; display: flex; align-items: center; gap: 2px;">TechWIZ <i class="fa-solid fa-up-right-from-square" style="font-size: 0.55rem; color: var(--text-tertiary);"></i></span>
+                                            <span style="font-size: 0.55rem; color: var(--text-tertiary); font-weight: 500; margin-top: 1px;">Top Performer</span>
+                                        </div>
+                                        <div class="micro-sparkline-orange-competitor"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 4: Avg. Uploads / Week -->
+                                <div class="card kpi-card" style="padding: 12px 14px; min-height: 110px; display: flex; flex-direction: column; justify-content: space-between;">
+                                    <div class="kpi-header" style="font-size: 0.7rem; gap: 6px; font-weight: 700; color: var(--text-tertiary);">
+                                        <div class="pref-icon-wrapper" style="background: #eff6ff; color: #3b82f6; width: 18px; height: 18px; font-size: 0.6rem;"><i class="fa-regular fa-clock"></i></div>
+                                        Avg. Uploads / Week
+                                    </div>
+                                    <div style="display: flex; align-items: baseline; gap: 4px; margin-top: 4px;">
+                                        <span style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary);">3.4</span>
+                                        <span style="font-size: 0.6rem; color: var(--text-secondary); font-weight: 600;">Per Channel</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%; margin-top: 6px;">
+                                        <div style="display: flex; flex-direction: column;">
+                                            <span style="font-size: 0.6rem; color: var(--success); font-weight: 700;"><i class="fa-solid fa-arrow-up"></i> 12.5%</span>
+                                            <span style="font-size: 0.55rem; color: var(--text-tertiary); font-weight: 500; margin-top: 1px;">vs last 30 days</span>
+                                        </div>
+                                        <div class="micro-sparkline-blue-competitor"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 5: Engagement Rate -->
+                                <div class="card kpi-card" style="padding: 12px 14px; min-height: 110px; display: flex; flex-direction: column; justify-content: space-between;">
+                                    <div class="kpi-header" style="font-size: 0.7rem; gap: 6px; font-weight: 700; color: var(--text-tertiary);">
+                                        <div class="pref-icon-wrapper" style="background: #fdf2f8; color: #db2777; width: 18px; height: 18px; font-size: 0.6rem;"><i class="fa-solid fa-bullseye"></i></div>
+                                        Engagement Rate
+                                    </div>
+                                    <div style="display: flex; align-items: baseline; gap: 4px; margin-top: 4px;">
+                                        <span style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary);">6.72%</span>
+                                        <span style="font-size: 0.6rem; color: var(--text-secondary); font-weight: 600;">Average</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%; margin-top: 6px;">
+                                        <div style="display: flex; flex-direction: column;">
+                                            <span style="font-size: 0.6rem; color: var(--success); font-weight: 700;"><i class="fa-solid fa-arrow-up"></i> 9.3%</span>
+                                            <span style="font-size: 0.55rem; color: var(--text-tertiary); font-weight: 500; margin-top: 1px;">vs last 30 days</span>
+                                        </div>
+                                        <div class="micro-sparkline-pink-competitor"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Competitor Comparison Section (Large premium table in the middle column) -->
+                            <div class="competitor-comparison-card">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; width: 100%;">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <h3 style="font-size: 0.85rem; font-weight: 800; color: var(--text-primary);">Competitor Comparison</h3>
+                                        <i class="fa-regular fa-circle-info" style="color: var(--text-tertiary); font-size: 0.75rem; cursor: pointer;"></i>
+                                    </div>
+                                </div>
+
+                                <table class="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 30%;">Channel</th>
+                                            <th style="width: 14%;">Subscribers</th>
+                                            <th style="width: 14%;">Avg. Views</th>
+                                            <th style="width: 14%;">Engagement Rate</th>
+                                            <th style="width: 14%;">Uploads / Week</th>
+                                            <th style="width: 14%;">Growth (30D)</th>
+                                            <th style="width: 10%;">Trend</th>
+                                            <th style="width: 4%;"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        <!-- Row 1: TechWiz -->
+                                        <tr>
+                                            <td>
+                                                <div class="channel-profile-cell">
+                                                    <div class="channel-avatar" style="background: #111827;">TW</div>
+                                                    <div class="channel-info">
+                                                        <span class="channel-name">TechWIZ <i class="fa-solid fa-up-right-from-square" style="font-size: 0.55rem; color: var(--text-tertiary); cursor: pointer;"></i></span>
+                                                        <span class="channel-handle">@techwiz</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">3.21M</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 8.4%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">1.82M</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 15.2%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">7.81%</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 11.3%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="table-value-main">4.1</span>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">+142K</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 9.8%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="table-microbar-green"></div>
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-ellipsis-vertical" style="color: var(--text-tertiary); cursor: pointer;"></i>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Row 2: Gizmo Reviews -->
+                                        <tr>
+                                            <td>
+                                                <div class="channel-profile-cell">
+                                                    <div class="channel-avatar" style="background: #6338f0;">GR</div>
+                                                    <div class="channel-info">
+                                                        <span class="channel-name">Gizmo Reviews <i class="fa-solid fa-up-right-from-square" style="font-size: 0.55rem; color: var(--text-tertiary); cursor: pointer;"></i></span>
+                                                        <span class="channel-handle">@gizmoreviews</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">2.08M</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 6.1%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">1.12M</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 11.4%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">6.23%</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 7.4%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="table-value-main">3.2</span>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">+89K</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 7.2%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="table-microbar-green"></div>
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-ellipsis-vertical" style="color: var(--text-tertiary); cursor: pointer;"></i>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Row 3: Unbox Tech -->
+                                        <tr>
+                                            <td>
+                                                <div class="channel-profile-cell">
+                                                    <div class="channel-avatar" style="background: #ea580c;">UT</div>
+                                                    <div class="channel-info">
+                                                        <span class="channel-name">Unbox Tech <i class="fa-solid fa-up-right-from-square" style="font-size: 0.55rem; color: var(--text-tertiary); cursor: pointer;"></i></span>
+                                                        <span class="channel-handle">@unboxtech</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">1.75M</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 7.7%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">965K</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 9.3%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">5.67%</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 6.1%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="table-value-main">2.8</span>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">+61K</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 5.6%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="table-microbar-green"></div>
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-ellipsis-vertical" style="color: var(--text-tertiary); cursor: pointer;"></i>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Row 4: Tech Simplified -->
+                                        <tr>
+                                            <td>
+                                                <div class="channel-profile-cell">
+                                                    <div class="channel-avatar" style="background: #10b981;">TS</div>
+                                                    <div class="channel-info">
+                                                        <span class="channel-name">Tech Simplified <i class="fa-solid fa-up-right-from-square" style="font-size: 0.55rem; color: var(--text-tertiary); cursor: pointer;"></i></span>
+                                                        <span class="channel-handle">@techsimplified</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">1.12M</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 2.2%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">612K</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 8.7%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">4.91%</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 4.8%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="table-value-main">2.3</span>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">+37K</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 4.3%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="table-microbar-green"></div>
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-ellipsis-vertical" style="color: var(--text-tertiary); cursor: pointer;"></i>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Row 5: Budget Android -->
+                                        <tr>
+                                            <td>
+                                                <div class="channel-profile-cell">
+                                                    <div class="channel-avatar" style="background: #db2777;">BA</div>
+                                                    <div class="channel-info">
+                                                        <span class="channel-name">Budget Android <i class="fa-solid fa-up-right-from-square" style="font-size: 0.55rem; color: var(--text-tertiary); cursor: pointer;"></i></span>
+                                                        <span class="channel-handle">@budgetandroid</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">892K</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 2.6%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">498K</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 6.2%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">4.32%</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 3.9%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="table-value-main">2.0</span>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span class="table-value-main">+24K</span>
+                                                    <span class="table-value-trend" style="color: var(--success);"><i class="fa-solid fa-arrow-up"></i> 3.1%</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="table-microbar-green"></div>
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-ellipsis-vertical" style="color: var(--text-tertiary); cursor: pointer;"></i>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                                
+                                <div style="display: flex; justify-content: center; width: 100%; margin-top: 14px;">
+                                    <button class="btn btn-secondary" style="padding: 8px 24px; border-radius: var(--radius-md); font-size: 0.75rem; font-weight: 700; background: var(--bg-surface); border: 1px solid var(--border-medium); cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s;">
+                                        View detailed comparison &rarr;
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Opportunity Insights Section (bottom horizontal grid of 5 cards) -->
+                            <div class="opportunities-section">
+                                <div style="display: flex; align-items: center; gap: 8px; width: 100%;">
+                                    <h3 style="font-size: 0.85rem; font-weight: 800; color: var(--text-primary);">Opportunity Insights</h3>
+                                    <i class="fa-regular fa-circle-info" style="color: var(--text-tertiary); font-size: 0.7rem; cursor: pointer;"></i>
+                                </div>
+                                <div class="opportunities-grid-5">
+                                    
+                                    <!-- Card 1: Content Gap -->
+                                    <div class="opportunity-card">
+                                        <div class="opportunity-card-top">
+                                            <div class="opportunity-card-header" style="color: var(--primary);">
+                                                <i class="fa-solid fa-magnifying-glass"></i> Content Gap
+                                            </div>
+                                            <p class="opportunity-card-body">
+                                                &ldquo;AI Tools for Students&rdquo; is trending but under-covered in your niche.
+                                            </p>
+                                        </div>
+                                        <a class="opportunity-card-link" href="#">Explore topic &rarr;</a>
+                                    </div>
+
+                                    <!-- Card 2: Video Length Gap -->
+                                    <div class="opportunity-card">
+                                        <div class="opportunity-card-top">
+                                            <div class="opportunity-card-header" style="color: #10b981;">
+                                                <i class="fa-regular fa-clock"></i> Video Length Gap
+                                            </div>
+                                            <p class="opportunity-card-body">
+                                                Competitors average 12&ndash;15 min videos. You can test longer high-retention content.
+                                            </p>
+                                        </div>
+                                        <a class="opportunity-card-link" href="#" style="color: #10b981;">View analytics &rarr;</a>
+                                    </div>
+
+                                    <!-- Card 3: Upload Frequency -->
+                                    <div class="opportunity-card">
+                                        <div class="opportunity-card-top">
+                                            <div class="opportunity-card-header" style="color: #3b82f6;">
+                                                <i class="fa-solid fa-cloud-arrow-up"></i> Upload Frequency
+                                            </div>
+                                            <p class="opportunity-card-body">
+                                                Top creators upload 3&ndash;4 times per week. Increasing consistency can boost growth.
+                                            </p>
+                                        </div>
+                                        <a class="opportunity-card-link" href="#" style="color: #3b82f6;">Optimize schedule &rarr;</a>
+                                    </div>
+
+                                    <!-- Card 4: Engagement Opportunity -->
+                                    <div class="opportunity-card">
+                                        <div class="opportunity-card-top">
+                                            <div class="opportunity-card-header" style="color: #db2777;">
+                                                <i class="fa-regular fa-heart"></i> Engagement Opportunity
+                                            </div>
+                                            <p class="opportunity-card-body">
+                                                Comments per video are 28% lower than top performers. Focus on stronger CTAs.
+                                            </p>
+                                        </div>
+                                        <a class="opportunity-card-link" href="#" style="color: #db2777;">Improve engagement &rarr;</a>
+                                    </div>
+
+                                    <!-- Card 5: SEO Opportunity -->
+                                    <div class="opportunity-card">
+                                        <div class="opportunity-card-top">
+                                            <div class="opportunity-card-header" style="color: #ea580c;">
+                                                <i class="fa-solid fa-key"></i> SEO Opportunity
+                                            </div>
+                                            <p class="opportunity-card-body">
+                                                Your videos rank low-volume tags used by Top 3 competitors in 17% of videos.
+                                            </p>
+                                        </div>
+                                        <a class="opportunity-card-link" href="#" style="color: #ea580c;">Find keywords &rarr;</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- 2. Right Sidebar (Stacked vertical column - 320px wide) -->
+                        <aside class="right-sidebar" style="width: 320px; gap: 20px;">
+                            
+                            <!-- Top Competitors by Niche -->
+                            <div class="card widget-box" style="padding: 16px;">
+                                <div class="widget-box-header" style="margin-bottom: 10px; font-size: 0.85rem;">
+                                    Top Competitors by Niche
+                                    <i class="fa-regular fa-circle-info" style="color: var(--text-tertiary); font-size: 0.7rem; margin-left: 4px;"></i>
+                                </div>
+                                
+                                <div class="niche-ranking-list">
+                                    
+                                    <!-- Rank 1 -->
+                                    <div class="niche-rank-item">
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <div class="rank-badge rank-badge-top">1</div>
+                                            <div style="display: flex; flex-direction: column;">
+                                                <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-primary);">TechWIZ</span>
+                                                <span style="font-size: 0.6rem; color: var(--text-tertiary); font-weight: 500;">Technology</span>
+                                            </div>
+                                        </div>
+                                        <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-secondary);">3.21M subs</span>
+                                    </div>
+
+                                    <!-- Rank 2 -->
+                                    <div class="niche-rank-item">
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <div class="rank-badge rank-badge-top">2</div>
+                                            <div style="display: flex; flex-direction: column;">
+                                                <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-primary);">Gizmo Reviews</span>
+                                                <span style="font-size: 0.6rem; color: var(--text-tertiary); font-weight: 500;">Technology</span>
+                                            </div>
+                                        </div>
+                                        <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-secondary);">2.08M subs</span>
+                                    </div>
+
+                                    <!-- Rank 3 -->
+                                    <div class="niche-rank-item">
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <div class="rank-badge rank-badge-top">3</div>
+                                            <div style="display: flex; flex-direction: column;">
+                                                <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-primary);">Unbox Tech</span>
+                                                <span style="font-size: 0.6rem; color: var(--text-tertiary); font-weight: 500;">Technology</span>
+                                            </div>
+                                        </div>
+                                        <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-secondary);">1.75M subs</span>
+                                    </div>
+
+                                    <!-- Rank 4 -->
+                                    <div class="niche-rank-item">
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <div class="rank-badge">4</div>
+                                            <div style="display: flex; flex-direction: column;">
+                                                <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-primary);">Tech Simplified</span>
+                                                <span style="font-size: 0.6rem; color: var(--text-tertiary); font-weight: 500;">Technology</span>
+                                            </div>
+                                        </div>
+                                        <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-secondary);">1.12M subs</span>
+                                    </div>
+
+                                    <!-- Rank 5 -->
+                                    <div class="niche-rank-item">
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <div class="rank-badge">5</div>
+                                            <div style="display: flex; flex-direction: column;">
+                                                <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-primary);">Budget Android</span>
+                                                <span style="font-size: 0.6rem; color: var(--text-tertiary); font-weight: 500;">Technology</span>
+                                            </div>
+                                        </div>
+                                        <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-secondary);">892K subs</span>
+                                    </div>
+
+                                </div>
+
+                                <a href="#" class="view-all" style="font-size: 0.725rem; padding-top: 10px; margin-top: auto; font-weight: 700;">View all competitors &rarr;</a>
+                            </div>
+
+                            <!-- Competitor Strengths -->
+                            <div class="card widget-box" style="padding: 16px;">
+                                <div class="widget-box-header" style="margin-bottom: 10px; font-size: 0.85rem;">
+                                    Competitor Strengths
+                                    <i class="fa-regular fa-circle-info" style="color: var(--text-tertiary); font-size: 0.7rem; margin-left: 4px;"></i>
+                                </div>
+                                
+                                <div class="insight-alert-item" style="padding: 8px; margin-bottom: 8px; align-items: center; gap: 8px;">
+                                    <div class="insight-alert-icon" style="width: 24px; height: 24px; font-size: 0.7rem; background: #ecfdf5; color: #10b981;"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                                    <div class="insight-alert-content" style="font-size: 0.725rem; line-height: 1.3;">
+                                        <strong>TechWIZ</strong><br><span style="color: var(--text-tertiary); font-size: 0.65rem;">Strong audience retention &amp; consistent uploads</span>
+                                    </div>
+                                </div>
+
+                                <div class="insight-alert-item" style="padding: 8px; margin-bottom: 8px; align-items: center; gap: 8px;">
+                                    <div class="insight-alert-icon" style="width: 24px; height: 24px; font-size: 0.7rem; background: #fdf2f8; color: #db2777;"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="insight-alert-content" style="font-size: 0.725rem; line-height: 1.3;">
+                                        <strong>Gizmo Reviews</strong><br><span style="color: var(--text-tertiary); font-size: 0.65rem;">High engagement &amp; community interaction</span>
+                                    </div>
+                                </div>
+
+                                <div class="insight-alert-item" style="padding: 8px; margin-bottom: 8px; align-items: center; gap: 8px;">
+                                    <div class="insight-alert-icon" style="width: 24px; height: 24px; font-size: 0.7rem; background: #fff7ed; color: #ea580c;"><i class="fa-regular fa-lightbulb"></i></div>
+                                    <div class="insight-alert-content" style="font-size: 0.725rem; line-height: 1.3;">
+                                        <strong>Unbox Tech</strong><br><span style="color: var(--text-tertiary); font-size: 0.65rem;">Great SEO &amp; discoverability</span>
+                                    </div>
+                                </div>
+                                
+                                <a href="#" class="view-all" style="font-size: 0.725rem; padding-top: 4px; margin-top: auto; font-weight: 700;">View full analysis &rarr;</a>
+                            </div>
+
+                        </aside>
+
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Floating Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbot-toggle">
+        <i class="fa-solid fa-face-smile"></i>
+        <div class="chatbot-glow"></div>
+    </div>
+
+    <div class="chatbot-popup glass-panel" id="chatbot-popup">
+        <div class="chatbot-header">
+            <div class="chatbot-avatar"><i class="fa-solid fa-robot"></i></div>
+            <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Flowzint AI</div>
+                <div style="font-size: 0.75rem; opacity: 0.9;">System Online</div>
+            </div>
+            <i class="fa-solid fa-xmark" id="chatbot-close" style="cursor: pointer; margin-left: auto; font-size: 1.2rem;"></i>
+        </div>
+        <div class="chatbot-body">
+            <div class="chat-message ai">Welcome to Competitor Intelligence Insights! I have analyzed your competitor landscape. TechWiz has increased upload rates. Explore the Opportunity Insights card below.</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Ask Flowzint AI...">
+            <button><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../js/competitors.js"></script>
+</body>
+</html>

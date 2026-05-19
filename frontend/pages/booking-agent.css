@@ -1,0 +1,63 @@
+/* booking-agent.css */
+
+.tabs-row {
+    display: flex;
+    gap: 16px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.tab {
+    padding-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.tab:hover {
+    color: var(--text-primary);
+}
+
+.tab.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+    font-weight: 700;
+}
+
+.request-card {
+    transition: all 0.2s ease;
+}
+
+.request-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.quick-action-item:hover {
+    border-color: var(--primary-light) !important;
+    background: #faf5ff;
+}
+
+.cal-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-block {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.event-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05) !important;
+    z-index: 10;
+}
+
+.floating-bot:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(122,82,244,0.6);
+}

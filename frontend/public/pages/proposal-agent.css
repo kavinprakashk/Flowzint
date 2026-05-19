@@ -1,0 +1,212 @@
+/* ==========================================================================
+   PROPOSAL AGENT - SPECIFIC PREMIUM INTERACTIONS & STYLING (PUBLIC PAGES VERSION)
+   ========================================================================== */
+
+/* Shimmer animation for card headers */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Accent Card Hover Glows */
+.glass-form-card, .glass-preview-card, .glass-widget-card {
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                border-color 0.3s ease;
+}
+
+.glass-form-card:hover, .glass-preview-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px -10px rgba(124, 58, 237, 0.08), 
+                0 4px 20px 0 rgba(0, 0, 0, 0.02);
+    border-color: rgba(124, 58, 237, 0.2);
+}
+
+.glass-widget-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.04);
+    border-color: rgba(124, 58, 237, 0.15);
+}
+
+/* Beautiful Focus States for Inputs */
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+    transform: scale(1.005);
+    border-color: var(--accent-purple) !important;
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08) !important;
+    background-color: #ffffff;
+}
+
+/* Interactive Platform Selection Focus */
+.platform-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.platform-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.4s ease;
+    pointer-events: none;
+}
+
+.platform-btn:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.platform-btn.active {
+    animation: buttonPulse 0.4s ease;
+}
+
+@keyframes buttonPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.96); }
+    100% { transform: scale(1); }
+}
+
+/* Custom platform-specific focus rings on hover */
+.platform-btn:hover {
+    border-color: rgba(124, 58, 237, 0.3) !important;
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.04);
+}
+
+/* Generated Proposal Sparkle Transitions */
+.spinner-sparkle {
+    animation: rotateSparkle 10s linear infinite;
+}
+
+@keyframes rotateSparkle {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Empty State Illustration Micro-Animations */
+.glow-doc-container {
+    animation: floatDoc 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatDoc {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-8px) rotate(2deg); }
+}
+
+.decor-sparkle {
+    animation: sparklePulse 1.8s infinite alternate;
+}
+
+.decor-sparkle.pos-1 {
+    animation-delay: 0.2s;
+}
+
+.decor-sparkle.pos-2 {
+    animation-delay: 0.9s;
+}
+
+@keyframes sparklePulse {
+    0% { transform: scale(0.8) rotate(0deg); opacity: 0.5; }
+    100% { transform: scale(1.1) rotate(45deg); opacity: 1; }
+}
+
+/* Beautiful custom animations for templates library items */
+.template-item {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                background-color 0.2s ease;
+}
+
+.template-item:hover {
+    transform: translateX(4px);
+    background-color: var(--accent-purple-light) !important;
+}
+
+.template-item:hover .template-name {
+    color: var(--accent-purple);
+}
+
+/* Recent proposals badge transformations */
+.recent-item {
+    transition: all 0.2s ease;
+}
+
+.recent-item:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+    border-color: rgba(124, 58, 237, 0.1);
+}
+
+.status-badge {
+    transition: transform 0.2s ease;
+}
+
+.recent-item:hover .status-badge {
+    transform: scale(1.05);
+}
+
+/* Dynamic Date Selector Button Hover */
+.date-selector {
+    position: relative;
+    overflow: hidden;
+}
+
+.date-selector:hover {
+    border-color: var(--accent-purple) !important;
+}
+
+/* Button Elevation Shine */
+.generate-proposal-btn, .new-campaign-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.generate-proposal-btn::before, .new-campaign-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: 0.75s;
+    pointer-events: none;
+}
+
+.generate-proposal-btn:hover::before, .new-campaign-btn:hover::before {
+    left: 150%;
+    transition: 0.75s;
+}
+
+/* Bottom Strip lift */
+.feature-strip-item {
+    transition: transform 0.2s ease;
+}
+
+.feature-strip-item:hover {
+    transform: translateY(-2px);
+}
+
+.feature-strip-item:hover .feature-strip-icon-box {
+    background-color: var(--accent-purple);
+}
+
+.feature-strip-item:hover .feature-strip-icon-box i {
+    color: #ffffff;
+}
+
+/* Input counters */
+.char-counter {
+    transition: color 0.2s ease;
+}
+
+.form-input:focus + .char-counter, .form-textarea:focus + .char-counter {
+    color: var(--accent-purple);
+}

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowzint | Proposal Agent</title>
+    <script src="../../assets/js/guard.js"></script>
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./proposal-agent.css">
+    <style>
+        .form-input, .form-select, .form-textarea { width: 100%; padding: 12px 14px; background: var(--bg-base); border: 1px solid var(--border-medium); border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--text-primary); outline: none; transition: all 0.2s; font-family: var(--font-sans); }
+        .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-glow); background: var(--bg-surface); }
+        .form-label { font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; display: block; }
+        .form-group { margin-bottom: 16px; }
+        .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .platform-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .platform-btn { padding: 10px; border-radius: var(--radius-md); border: 1px solid var(--border-medium); background: var(--bg-surface); cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.8rem; color: var(--text-secondary); transition: all 0.2s; }
+        .platform-btn.active { border-color: var(--primary); background: var(--primary-bg); color: var(--primary); }
+        .platform-btn i { font-size: 1.1rem; }
+        .generate-proposal-btn { background: var(--primary-gradient); color: white; border: none; padding: 12px 24px; border-radius: var(--radius-md); font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; width: 100%; justify-content: center; font-size: 0.9rem; box-shadow: 0 4px 15px var(--primary-glow); }
+        .clear-all-btn { background: var(--bg-base); color: var(--text-secondary); border: 1px solid var(--border-medium); padding: 12px 24px; border-radius: var(--radius-md); font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; transition: all 0.2s; }
+        .clear-all-btn:hover { background: var(--danger-bg); color: var(--danger); border-color: var(--danger); }
+        .form-actions-row { display: grid; grid-template-columns: 1fr 100px; gap: 12px; margin-top: 24px; }
+        .empty-preview-state { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; color: var(--text-secondary); padding: 40px 20px; }
+        .glow-doc-container { width: 64px; height: 64px; background: var(--primary-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.8rem; margin-bottom: 20px; position: relative; }
+        .preview-actions-row { display: flex; gap: 10px; margin-top: 20px; border-top: 1px solid var(--border-light); padding-top: 20px; }
+        .preview-action-btn { flex: 1; padding: 10px; border: 1px solid var(--border-medium); background: var(--bg-base); border-radius: var(--radius-sm); font-weight: 600; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; color: var(--text-secondary); transition: all 0.2s; }
+        .preview-action-btn:hover { background: var(--primary-bg); color: var(--primary); border-color: var(--primary-light); }
+        .tips-list, .template-list, .recent-list { list-style: none; padding: 0; margin: 0; }
+        .tip-item, .template-item, .recent-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border-light); }
+        .tip-item:last-child, .template-item:last-child, .recent-item:last-child { border-bottom: none; }
+        .tip-dot-box { color: var(--primary); font-size: 1rem; margin-top: 2px; }
+        .tip-title { font-weight: 700; font-size: 0.85rem; color: var(--text-primary); display: block; }
+        .tip-desc { font-size: 0.75rem; color: var(--text-secondary); }
+        .template-icon-box { width: 32px; height: 32px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; }
+        .template-icon-box.yt { background: #ef4444; }
+        .template-icon-box.ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .template-icon-box.pl { background: #3b82f6; }
+        .template-icon-box.ap { background: #10b981; }
+        .recent-num { width: 24px; height: 24px; background: var(--bg-base); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); flex-shrink: 0; }
+        .recent-details { flex: 1; }
+        .recent-name { font-weight: 700; font-size: 0.85rem; color: var(--text-primary); display: block; }
+        .recent-meta { font-size: 0.7rem; color: var(--text-tertiary); }
+        .status-badge { padding: 2px 8px; border-radius: var(--radius-pill); font-size: 0.65rem; font-weight: 700; margin-left: auto; flex-shrink: 0; }
+        .status-badge.sent { background: var(--success-bg); color: var(--success); }
+        .status-badge.draft { background: var(--border-light); color: var(--text-secondary); }
+        .status-badge.generated { background: var(--primary-bg); color: var(--primary); }
+        .bottom-features-strip { margin-top: 40px; background: var(--primary-gradient); border-radius: var(--radius-lg); padding: 30px; color: white; box-shadow: 0 10px 30px var(--primary-glow); }
+        .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 20px; }
+        .feature-strip-item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+        .feature-strip-icon-box { width: 48px; height: 48px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+        .feature-strip-name { font-weight: 700; font-size: 0.9rem; }
+        .feature-strip-desc { font-size: 0.75rem; opacity: 0.9; line-height: 1.4; }
+        .glass-preview-card { height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+        .label-row-with-counter { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+        .label-row-with-counter .form-label { margin-bottom: 0; }
+        .char-counter { font-size: 0.65rem; color: var(--text-tertiary); font-weight: 600; }
+        .optional-label { color: var(--text-tertiary); font-weight: 500; font-size: 0.65rem; margin-left: 4px; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Sidebar (Compact 240px wide) -->
+        <aside class="sidebar" style="width: 240px;">
+            <div class="sidebar-brand" style="padding: 16px 20px 12px 20px;">
+                <div class="brand-icon" style="width: 32px; height: 32px; font-size: 1.1rem;"><i class="fa-solid fa-face-smile"></i></div>
+                <div>
+                    <div style="font-weight: 800; font-size: 1.2rem; letter-spacing: -0.5px; color: var(--text-primary); line-height: 1;">flowzint</div>
+                    <div style="font-size: 0.6rem; color: var(--text-tertiary); font-weight: 600; margin-top: 2px;">Creator Operating System</div>
+                </div>
+            </div>
+
+            <div class="sidebar-scroll" style="padding: 8px 12px;">
+                <div class="nav-section">
+                    <div class="nav-label" style="font-size: 0.6rem; padding: 0 8px; margin-bottom: 6px;">Overview</div>
+                    <a href="../dashboard.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-border-all" style="font-size: 0.95rem;"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-gear" style="font-size: 0.95rem;"></i>
+                        <span>Features</span>
+                    </a>
+                    <a href="analytics.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-chart-simple" style="font-size: 0.95rem;"></i>
+                        <span>Analytics</span>
+                    </a>
+                    <a href="content-performance.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-file-video" style="font-size: 0.95rem;"></i>
+                        <span>Content Performance</span>
+                    </a>
+                    <a href="competitors.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-users-viewfinder" style="font-size: 0.95rem;"></i>
+                        <span>Competitors</span>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-chart-pie" style="font-size: 0.95rem;"></i>
+                        <span>Audience Insights</span>
+                    </a>
+                </div>
+
+                <div class="nav-section" style="margin-bottom: 16px;">
+                    <div class="nav-label" style="font-size: 0.6rem; padding: 0 8px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center;">
+                        AI AGENTS
+                        <span class="badge badge-primary" style="font-size: 0.55rem; padding: 1px 4px;">+ New Agent</span>
+                    </div>
+                    <a href="script-agent.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-pen-nib" style="font-size: 0.95rem;"></i>
+                        <span>Script Agent</span>
+                    </a>
+                    <a href="proposal-agent.html" class="nav-item active" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-file-contract" style="font-size: 0.95rem;"></i>
+                        <span>Proposal Agent</span>
+                        <i class="fa-solid fa-chevron-right nav-action" style="font-size: 0.65rem;"></i>
+                    </a>
+                    <a href="gmail-agent.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-envelope" style="font-size: 0.95rem;"></i>
+                        <span>Gmail Agent</span>
+                    </a>
+                    <a href="booking-agent.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-calendar-check" style="font-size: 0.95rem;"></i>
+                        <span>Booking Agent</span>
+                    </a>
+                </div>
+
+                <div class="nav-section" style="margin-bottom: 16px;">
+                    <div class="nav-label" style="font-size: 0.6rem; padding: 0 8px; margin-bottom: 6px;">Automation</div>
+                    <a href="schedules.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-calendar-days" style="font-size: 0.95rem;"></i>
+                        <span>Schedules</span>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-paper-plane" style="font-size: 0.95rem;"></i>
+                        <span>Auto Posting</span>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-wand-magic-sparkles" style="font-size: 0.95rem;"></i>
+                        <span>AI Video Generator</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar-footer" style="padding: 12px 16px;">
+                <div class="card user-card" id="user-menu-btn" style="padding: 6px; box-shadow: none;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="https://ui-avatars.com/api/?name=Creator&background=6338f0&color=fff" style="width: 32px; height: 32px;" alt="User">
+                        <div>
+                            <div style="font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; gap: 4px;" id="user-email">Creator Pro <i class="fa-solid fa-circle-check" style="color: var(--primary); font-size: 0.65rem;"></i></div>
+                            <div style="font-size: 0.65rem; color: var(--text-tertiary); font-weight: 500;">Pro Plan</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; color: var(--text-tertiary);"></i>
+                </div>
+                <div class="storage-widget" style="margin-top: 10px;">
+                    <div style="font-size: 0.65rem; font-weight: 600; color: var(--text-secondary);">Storage Used</div>
+                    <div class="progress-bar" style="height: 4px; margin: 4px 0;"><div class="progress-fill"></div></div>
+                    <div style="font-size: 0.6rem; color: var(--text-tertiary); font-weight: 600; text-align: center;">72% (72GB / 100GB)</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Wrapper -->
+        
+        <!-- Main Content Wrapper -->
+        <main class="main-wrapper">
+
+            
+            <!-- Top Navbar (Centered Grid Containment) -->
+            <header class="topbar" style="height: 70px;">
+                <div class="topbar-container" style="padding: 0 24px;">
+                    <div class="search-bar" style="padding: 6px 16px; width: 340px; height: 38px;">
+                        <i class="fa-solid fa-search" style="font-size: 0.8rem;"></i>
+                        <input type="text" placeholder="Search insights, videos, keywords..." style="font-size: 0.8rem;">
+                        <span class="badge badge-primary" style="font-size: 0.6rem; padding: 1px 6px;">⌘ K</span>
+                    </div>
+
+                    <div class="topbar-actions" style="gap: 12px;">
+                        <div class="icon-btn" style="width: 36px; height: 36px; font-size: 0.95rem;">
+                            <i class="fa-regular fa-bell"></i>
+                            <div class="notification-dot" style="width: 8px; height: 8px;"></div>
+                        </div>
+                        <div class="icon-btn" style="width: 36px; height: 36px; font-size: 0.95rem;">
+                            <i class="fa-regular fa-calendar"></i>
+                        </div>
+                        <button class="btn btn-primary" style="padding: 8px 16px; height: 38px; font-size: 0.8rem; border-radius: var(--radius-md);">
+                            <i class="fa-solid fa-plus"></i> New Campaign
+                        </button>
+                        <img src="https://ui-avatars.com/api/?name=Creator&background=6338f0&color=fff" style="width: 34px; height: 34px; border-radius: 50%; box-shadow: var(--shadow-sm);" alt="Avatar">
+                    </div>
+                </div>
+            </header>
+
+            
+            <!-- Dashboard Content Scroll -->
+            <div class="dashboard-content" style="padding: 20px 24px;">
+                <div class="dashboard-container">
+                    
+                    <!-- Hero Section -->
+                    <div class="content-performance-hero" style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: flex-end;">
+                        <div class="performance-header-left" style="display: flex; gap: 16px; align-items: center;">
+                            <div class="performance-icon-block" style="width: 48px; height: 48px; background: var(--primary-bg); color: var(--primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                                <i class="fa-regular fa-envelope-open"></i>
+                            </div>
+                            <div>
+                                <h1 class="heading-xl" style="margin: 0; line-height: 1.1; font-size: 1.5rem; font-weight: 800;">Proposal Agent</h1>
+                                <p class="text-sm" style="margin-top: 4px; font-weight: 500; font-size: 0.85rem; color: var(--text-secondary);">AI-powered proposal writer that helps you create professional brand deals and collaboration proposals.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <div class="date-picker" style="padding: 8px 12px; font-size: 0.75rem;">
+                                <i class="fa-regular fa-calendar" style="color: var(--text-secondary);"></i> May 16 - Jun 15, 2025 <i class="fa-solid fa-chevron-down" style="color: var(--text-tertiary); font-size: 0.65rem; margin-left: 6px;"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Top Navigation Tabs (Under Header) -->
+                    <div class="competitors-tabs-row" style="margin-bottom: 20px; display: flex; gap: 24px; border-bottom: 1px solid var(--border-light); padding-bottom: 0;">
+                        <span class="tab-nav-item active" style="padding-bottom: 12px; border-bottom: 2px solid var(--primary); color: var(--primary); font-weight: 700; cursor: pointer; font-size: 0.85rem;">Create Proposal</span>
+                        <span class="tab-nav-item" style="padding-bottom: 12px; color: var(--text-secondary); font-weight: 600; cursor: pointer; font-size: 0.85rem;">Saved Proposals</span>
+                        <span class="tab-nav-item" style="padding-bottom: 12px; color: var(--text-secondary); font-weight: 600; cursor: pointer; font-size: 0.85rem;">Templates</span>
+                        <span class="tab-nav-item" style="padding-bottom: 12px; color: var(--text-secondary); font-weight: 600; cursor: pointer; font-size: 0.85rem;">History</span>
+                        <span class="tab-nav-item" style="padding-bottom: 12px; color: var(--text-secondary); font-weight: 600; cursor: pointer; font-size: 0.85rem;">Settings</span>
+                    </div>
+
+                    <!-- Layout Grid: 3 columns -->
+                    <div class="dashboard-layout" style="grid-template-columns: 1fr 1fr 320px; gap: 20px; align-items: stretch;">
+                        
+                        <!-- LEFT COLUMN: Proposal Form -->
+                        <div class="card glass-form-card" style="padding: 24px;">
+                            <div style="margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border-light);">
+                                <span style="font-weight: 800; color: var(--primary); margin-right: 8px;">1.</span>
+                                <h3 style="display: inline; font-size: 1.05rem; font-weight: 800;">Proposal Details</h3>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label class="form-label">Brand / Company Name</label>
+                                    <input type="text" class="form-input" placeholder="e.g. Nike, Google, Notion">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Contact Person <span class="optional-label">(optional)</span></label>
+                                    <input type="text" class="form-input" placeholder="e.g. Sarah Johnson">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="label-row-with-counter">
+                                    <label class="form-label">Campaign / Collaboration Title</label>
+                                    <span class="char-counter">0/100</span>
+                                </div>
+                                <input type="text" class="form-input" placeholder="e.g. YouTube Integration Campaign">
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label class="form-label">Proposal Type</label>
+                                    <div style="position: relative;">
+                                        <select class="form-select" style="appearance: none;">
+                                            <option>Brand Collaboration</option>
+                                            <option>Affiliate Deal</option>
+                                            <option>Sponsorship</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down" style="position: absolute; right: 14px; top: 14px; font-size: 0.8rem; color: var(--text-tertiary); pointer-events: none;"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Budget Range <span class="optional-label">(optional)</span></label>
+                                    <input type="text" class="form-input" placeholder="e.g. $1,000 – $5,000">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Platform Focus</label>
+                                <div class="platform-grid">
+                                    <button class="platform-btn">
+                                        <i class="fa-brands fa-youtube" style="color: #ef4444;"></i>
+                                        <span>YouTube</span>
+                                    </button>
+                                    <button class="platform-btn">
+                                        <i class="fa-brands fa-instagram" style="color: #e1306c;"></i>
+                                        <span>Instagram</span>
+                                    </button>
+                                    <button class="platform-btn">
+                                        <i class="fa-brands fa-tiktok" style="color: #000;"></i>
+                                        <span>TikTok</span>
+                                    </button>
+                                    <button class="platform-btn active">
+                                        <i class="fa-solid fa-layer-group"></i>
+                                        <span>All Platforms</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Campaign Objective</label>
+                                <div style="position: relative;">
+                                    <select class="form-select" style="appearance: none;">
+                                        <option disabled selected>Select campaign objective</option>
+                                        <option>Brand Awareness</option>
+                                        <option>Lead Generation</option>
+                                        <option>Product Sales</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down" style="position: absolute; right: 14px; top: 14px; font-size: 0.8rem; color: var(--text-tertiary); pointer-events: none;"></i>
+                                </div>
+                            </div>
+
+                            <div style="margin: 24px 0 20px 0; padding-bottom: 12px; border-bottom: 1px solid var(--border-light);">
+                                <span style="font-weight: 800; color: var(--primary); margin-right: 8px;">2.</span>
+                                <h3 style="display: inline; font-size: 1.05rem; font-weight: 800;">Add More Information</h3>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="label-row-with-counter">
+                                    <label class="form-label">Deliverables</label>
+                                    <span class="char-counter">0/200</span>
+                                </div>
+                                <input type="text" class="form-input" placeholder="e.g. 1 YouTube Video, 3 Instagram Stories, 1 Reel">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Timeline</label>
+                                <div style="position: relative;">
+                                    <select class="form-select" style="appearance: none;">
+                                        <option disabled selected>Select timeline</option>
+                                        <option>1-2 Weeks</option>
+                                        <option>1 Month</option>
+                                        <option>Quarterly</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down" style="position: absolute; right: 14px; top: 14px; font-size: 0.8rem; color: var(--text-tertiary); pointer-events: none;"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="label-row-with-counter">
+                                    <label class="form-label">Key Message / Talking Points</label>
+                                    <span class="char-counter">0/300</span>
+                                </div>
+                                <textarea class="form-textarea" rows="3" placeholder="e.g. Highlight product benefits, upcoming launch, etc."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="label-row-with-counter">
+                                    <label class="form-label">Additional Notes <span class="optional-label">(optional)</span></label>
+                                    <span class="char-counter">0/300</span>
+                                </div>
+                                <textarea class="form-textarea" rows="2" placeholder="Anything else the brand should know?"></textarea>
+                            </div>
+
+                            <div class="form-actions-row">
+                                <button class="generate-proposal-btn">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                    <span>Generate Proposal</span>
+                                </button>
+                                <button class="clear-all-btn">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- CENTER COLUMN: Preview -->
+                        <div class="card glass-preview-card" style="padding: 24px; background: var(--bg-surface);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border-light);">
+                                <h3 style="font-size: 1.05rem; font-weight: 800;">Proposal Preview</h3>
+                                <span class="badge" style="background: var(--primary-bg); color: var(--primary);">AI Generated</span>
+                            </div>
+
+                            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="empty-preview-state">
+                                    <div class="glow-doc-container">
+                                        <i class="fa-regular fa-file-lines"></i>
+                                        <div style="position: absolute; top: -5px; right: -5px; font-size: 1rem;"><i class="fa-solid fa-sparkles"></i></div>
+                                    </div>
+                                    <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Your AI generated proposal will appear here</h4>
+                                    <p style="font-size: 0.85rem; line-height: 1.5; max-width: 250px;">Fill in the details and click “Generate Proposal” to get started.</p>
+                                </div>
+                            </div>
+
+                            <div class="preview-actions-row">
+                                <button class="preview-action-btn"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <button class="preview-action-btn"><i class="fa-solid fa-plus"></i> Save</button>
+                                <button class="preview-action-btn"><i class="fa-solid fa-download"></i> Export PDF</button>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT COLUMN: Widgets -->
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            
+                            <!-- Proposal Tips -->
+                            <div class="card glass-widget-card" style="padding: 20px;">
+                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                                    <div style="width: 28px; height: 28px; background: #fffbeb; color: #f59e0b; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 0.85rem;"><i class="fa-regular fa-lightbulb"></i></div>
+                                    <h3 style="font-size: 0.95rem; font-weight: 800;">Proposal Tips</h3>
+                                </div>
+                                <ul class="tips-list">
+                                    <li class="tip-item">
+                                        <div class="tip-dot-box"><i class="fa-solid fa-bullseye"></i></div>
+                                        <div>
+                                            <span class="tip-title">Start with a strong intro</span>
+                                            <span class="tip-desc">Hook the brand in the first line.</span>
+                                        </div>
+                                    </li>
+                                    <li class="tip-item">
+                                        <div class="tip-dot-box"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                                        <div>
+                                            <span class="tip-title">Highlight your value</span>
+                                            <span class="tip-desc">Show how you help them grow.</span>
+                                        </div>
+                                    </li>
+                                    <li class="tip-item">
+                                        <div class="tip-dot-box"><i class="fa-solid fa-layer-group"></i></div>
+                                        <div>
+                                            <span class="tip-title">Be clear & specific</span>
+                                            <span class="tip-desc">Mention deliverables & timeline.</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <a href="#" style="font-size: 0.75rem; color: var(--primary); font-weight: 700; margin-top: 16px; display: inline-block;">View full guidelines &rarr;</a>
+                            </div>
+
+                            <!-- Templates -->
+                            <div class="card glass-widget-card" style="padding: 20px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                                    <h3 style="font-size: 0.95rem; font-weight: 800;">Template Library</h3>
+                                    <a href="#" style="font-size: 0.75rem; color: var(--primary); font-weight: 700;">View all</a>
+                                </div>
+                                <ul class="template-list">
+                                    <li class="template-item">
+                                        <div class="template-icon-box yt"><i class="fa-brands fa-youtube"></i></div>
+                                        <div>
+                                            <span class="tip-title">YouTube Brand Deal</span>
+                                            <span class="tip-desc">For sponsored YT videos</span>
+                                        </div>
+                                    </li>
+                                    <li class="template-item">
+                                        <div class="template-icon-box ig"><i class="fa-brands fa-instagram"></i></div>
+                                        <div>
+                                            <span class="tip-title">Instagram Collab</span>
+                                            <span class="tip-desc">For IG posts & reels</span>
+                                        </div>
+                                    </li>
+                                    <li class="template-item">
+                                        <div class="template-icon-box pl"><i class="fa-solid fa-rocket"></i></div>
+                                        <div>
+                                            <span class="tip-title">Product Launch</span>
+                                            <span class="tip-desc">For new product promos</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Recents -->
+                            <div class="card glass-widget-card" style="padding: 20px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                                    <h3 style="font-size: 0.95rem; font-weight: 800;">Recent Proposals</h3>
+                                </div>
+                                <ul class="recent-list">
+                                    <li class="recent-item">
+                                        <div class="recent-num">1</div>
+                                        <div class="recent-details">
+                                            <span class="recent-name">Nike YouTube</span>
+                                            <span class="recent-meta">May 15 • $5K – $10K</span>
+                                        </div>
+                                        <span class="status-badge sent">Sent</span>
+                                    </li>
+                                    <li class="recent-item">
+                                        <div class="recent-num">2</div>
+                                        <div class="recent-details">
+                                            <span class="recent-name">Notion Collab</span>
+                                            <span class="recent-meta">May 12 • $2K – $5K</span>
+                                        </div>
+                                        <span class="status-badge draft">Draft</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Bottom Features Strip -->
+                    <div class="bottom-features-strip">
+                        <h3 style="text-align: center; font-size: 1.25rem; font-weight: 800; margin-bottom: 10px;">Why Use Proposal Agent?</h3>
+                        <div class="features-grid">
+                            <div class="feature-strip-item">
+                                <div class="feature-strip-icon-box"><i class="fa-regular fa-clock"></i></div>
+                                <span class="feature-strip-name">Saves Time</span>
+                                <span class="feature-strip-desc">Create professional proposals in minutes.</span>
+                            </div>
+                            <div class="feature-strip-item">
+                                <div class="feature-strip-icon-box"><i class="fa-regular fa-circle-check"></i></div>
+                                <span class="feature-strip-name">Increases Response</span>
+                                <span class="feature-strip-desc">Well-crafted proposals get more replies.</span>
+                            </div>
+                            <div class="feature-strip-item">
+                                <div class="feature-strip-icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                                <span class="feature-strip-name">AI-Powered</span>
+                                <span class="feature-strip-desc">Smart suggestions to make you stand out.</span>
+                            </div>
+                            <div class="feature-strip-item">
+                                <div class="feature-strip-icon-box"><i class="fa-regular fa-file-lines"></i></div>
+                                <span class="feature-strip-name">Professional Format</span>
+                                <span class="feature-strip-desc">Clean, structured & brand-ready.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Floating Chatbot Widget (from audience-insights) -->
+    <div class="chatbot-widget" id="chatbot-toggle">
+        <i class="fa-solid fa-face-smile"></i>
+        <div class="chatbot-glow"></div>
+    </div>
+
+    <!-- Modals -->
+    <div class="chatbot-popup glass-panel" id="chatbot-popup">
+        <div class="chatbot-header">
+            <div class="chatbot-avatar"><i class="fa-solid fa-robot"></i></div>
+            <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Flowzint AI</div>
+                <div style="font-size: 0.75rem; opacity: 0.9;">System Online</div>
+            </div>
+            <i class="fa-solid fa-xmark" id="chatbot-close" style="cursor: pointer; margin-left: auto; font-size: 1.2rem;"></i>
+        </div>
+        <div class="chatbot-body">
+            <div class="chat-message ai">Welcome to Proposal Agent! Let me know if you need help drafting a professional brand deal outline.</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Ask Flowzint AI...">
+            <button><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="../../assets/js/api.js"></script>
+    <script src="../../assets/js/auth.js"></script>
+    <script src="../../js/proposal-agent.js"></script>
+</body>
+</html>

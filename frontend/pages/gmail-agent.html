@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowzint | Gmail Agent</title>
+    <script src="../assets/js/guard.js"></script>
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../css/audience-insights.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./gmail-agent.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Sidebar (Compact 240px wide) -->
+        <aside class="sidebar" style="width: 240px;">
+            <div class="sidebar-brand" style="padding: 16px 20px 12px 20px;">
+                <div class="brand-icon" style="width: 32px; height: 32px; font-size: 1.1rem;"><i class="fa-solid fa-face-smile"></i></div>
+                <div>
+                    <div style="font-weight: 800; font-size: 1.2rem; letter-spacing: -0.5px; color: var(--text-primary); line-height: 1;">flowzint</div>
+                    <div style="font-size: 0.6rem; color: var(--text-tertiary); font-weight: 600; margin-top: 2px;">Creator Operating System</div>
+                </div>
+            </div>
+
+            <div class="sidebar-scroll" style="padding: 8px 12px;">
+                <div class="nav-section">
+                    <div class="nav-label" style="font-size: 0.6rem; padding: 0 8px; margin-bottom: 6px;">Overview</div>
+                    <a href="../dashboard.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-border-all" style="font-size: 0.95rem;"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-gear" style="font-size: 0.95rem;"></i>
+                        <span>Features</span>
+                    </a>
+                    <a href="analytics.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-chart-simple" style="font-size: 0.95rem;"></i>
+                        <span>Analytics</span>
+                    </a>
+                    <a href="content-performance.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-file-video" style="font-size: 0.95rem;"></i>
+                        <span>Content Performance</span>
+                    </a>
+                    <a href="competitors.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-users-viewfinder" style="font-size: 0.95rem;"></i>
+                        <span>Competitors</span>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-chart-pie" style="font-size: 0.95rem;"></i>
+                        <span>Audience Insights</span>
+                    </a>
+                </div>
+
+                <div class="nav-section" style="margin-bottom: 16px;">
+                    <div class="nav-label" style="font-size: 0.6rem; padding: 0 8px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center;">
+                        AI AGENTS
+                        <span class="badge badge-primary" style="font-size: 0.55rem; padding: 1px 4px;">+ New Agent</span>
+                    </div>
+                    <a href="script-agent.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-pen-nib" style="font-size: 0.95rem;"></i>
+                        <span>Script Agent</span>
+                    </a>
+                    <a href="proposal-agent.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-file-contract" style="font-size: 0.95rem;"></i>
+                        <span>Proposal Agent</span>
+                    </a>
+                    <a href="gmail-agent.html" class="nav-item active" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-envelope" style="font-size: 0.95rem;"></i>
+                        <span>Gmail Agent</span>
+                        <i class="fa-solid fa-chevron-right nav-action" style="font-size: 0.65rem;"></i>
+                    </a>
+                    <a href="booking-agent.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-calendar-check" style="font-size: 0.95rem;"></i>
+                        <span>Booking Agent</span>
+                    </a>
+                </div>
+
+                <div class="nav-section" style="margin-bottom: 16px;">
+                    <div class="nav-label" style="font-size: 0.6rem; padding: 0 8px; margin-bottom: 6px;">Automation</div>
+                    <a href="schedules.html" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-calendar-days" style="font-size: 0.95rem;"></i>
+                        <span>Schedules</span>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-regular fa-paper-plane" style="font-size: 0.95rem;"></i>
+                        <span>Auto Posting</span>
+                    </a>
+                    <a href="#" class="nav-item" style="padding: 8px 10px; font-size: 0.8rem; gap: 10px; margin-bottom: 2px;">
+                        <i class="fa-solid fa-wand-magic-sparkles" style="font-size: 0.95rem;"></i>
+                        <span>AI Video Generator</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar-footer" style="padding: 12px 16px;">
+                <div class="card user-card" id="user-menu-btn" style="padding: 6px; box-shadow: none;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="https://ui-avatars.com/api/?name=Creator&background=6338f0&color=fff" style="width: 32px; height: 32px;" alt="User">
+                        <div>
+                            <div style="font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; gap: 4px;" id="user-email">Creator Pro <i class="fa-solid fa-circle-check" style="color: var(--primary); font-size: 0.65rem;"></i></div>
+                            <div style="font-size: 0.65rem; color: var(--text-tertiary); font-weight: 500;">Pro Plan</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; color: var(--text-tertiary);"></i>
+                </div>
+                <div class="storage-widget" style="margin-top: 10px;">
+                    <div style="font-size: 0.65rem; font-weight: 600; color: var(--text-secondary);">Storage Used</div>
+                    <div class="progress-bar" style="height: 4px; margin: 4px 0;"><div class="progress-fill"></div></div>
+                    <div style="font-size: 0.6rem; color: var(--text-tertiary); font-weight: 600; text-align: center;">72% (72GB / 100GB)</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Wrapper -->
+        <main class="main-wrapper">
+
+            
+            <!-- Top Navbar (Centered Grid Containment) -->
+            <header class="topbar" style="height: 70px;">
+                <div class="topbar-container" style="padding: 0 24px;">
+                    <div class="search-bar" style="padding: 6px 16px; width: 340px; height: 38px;">
+                        <i class="fa-solid fa-search" style="font-size: 0.8rem;"></i>
+                        <input type="text" placeholder="Search emails or orchestrate AI workflows..." style="font-size: 0.8rem;">
+                        <span class="badge badge-primary" style="font-size: 0.6rem; padding: 1px 6px;">⌘ K</span>
+                    </div>
+
+                    <div class="topbar-actions" style="gap: 12px;">
+                        <div class="icon-btn" style="width: 36px; height: 36px; font-size: 0.95rem;">
+                            <i class="fa-regular fa-bell"></i>
+                            <div class="notification-dot" style="width: 8px; height: 8px;"></div>
+                        </div>
+                        <div class="icon-btn" style="width: 36px; height: 36px; font-size: 0.95rem;">
+                            <i class="fa-regular fa-calendar"></i>
+                        </div>
+                        <button class="btn btn-primary" style="padding: 8px 16px; height: 38px; font-size: 0.8rem; border-radius: var(--radius-md);">
+                            <i class="fa-solid fa-plus"></i> New Campaign
+                        </button>
+                        <img src="https://ui-avatars.com/api/?name=Creator&background=6338f0&color=fff" style="width: 34px; height: 34px; border-radius: 50%; box-shadow: var(--shadow-sm);" alt="Avatar">
+                    </div>
+                </div>
+            </header>
+
+            
+            <!-- Dashboard Content Scroll -->
+            <div class="dashboard-content" style="padding: 24px;">
+                <div class="dashboard-layout" style="grid-template-columns: 320px 1fr 320px; gap: 24px; align-items: stretch; height: calc(100vh - 120px);">
+                    
+                    <!-- COLUMN 1: Inbox List -->
+                    <div style="display: flex; flex-direction: column; gap: 16px; height: 100%;">
+                        <div style="margin-bottom: 8px;">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 4px;">
+                                <h1 class="heading-xl" style="font-size: 1.5rem; margin: 0;">Intelligence Inbox</h1>
+                                <span class="badge" style="background: var(--success-bg); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.2); padding: 4px 10px; border-radius: var(--radius-pill); font-size: 0.7rem;">
+                                    <i class="fa-solid fa-arrow-rotate-right" style="margin-right: 4px;"></i> Connected
+                                </span>
+                            </div>
+                            <p class="text-sm" style="color: var(--text-secondary);">All your emails, organized and AI-powered.</p>
+                        </div>
+
+                        <div class="tabs-row" style="display: flex; gap: 16px; border-bottom: 1px solid var(--border-light); padding-bottom: 0;">
+                            <span class="tab active">All</span>
+                            <span class="tab">Primary</span>
+                            <span class="tab">Updates</span>
+                            <span class="tab">Promotions</span>
+                        </div>
+
+                        <div class="email-list" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 4px; padding-right: 8px;">
+                            <!-- Email Items -->
+                            <div class="email-item">
+                                <div class="email-avatar" style="background: #f3f4f6; color: #4b5563;">G</div>
+                                <div class="email-content">
+                                    <div class="email-header">
+                                        <span class="email-sender">Google</span>
+                                        <span class="email-time">5:29 PM</span>
+                                    </div>
+                                    <div class="email-subject">Security alert for your account</div>
+                                </div>
+                            </div>
+                            <div class="email-item">
+                                <div class="email-avatar" style="background: #e0e7ff; color: #3b82f6;">N</div>
+                                <div class="email-content">
+                                    <div class="email-header">
+                                        <span class="email-sender">no-reply</span>
+                                        <span class="email-time">5:03 PM</span>
+                                    </div>
+                                    <div class="email-subject">Your invoice from Flowzint</div>
+                                </div>
+                            </div>
+                            <div class="email-item">
+                                <div class="email-avatar" style="background: #dbeafe; color: #2563eb;">L</div>
+                                <div class="email-content">
+                                    <div class="email-header">
+                                        <span class="email-sender">LinkedIn</span>
+                                        <span class="email-time">4:26 PM</span>
+                                    </div>
+                                    <div class="email-subject">New connection request</div>
+                                </div>
+                            </div>
+                            <div class="email-item active">
+                                <div class="email-avatar" style="background: var(--primary-bg); color: var(--primary);">C</div>
+                                <div class="email-content">
+                                    <div class="email-header">
+                                        <span class="email-sender" style="color: var(--primary);">Codecademy</span>
+                                        <span class="email-time" style="color: var(--primary);">2:22 PM</span>
+                                    </div>
+                                    <div class="email-subject" style="color: var(--primary);">Get 50% off Pro</div>
+                                </div>
+                            </div>
+                            <div class="email-item">
+                                <div class="email-avatar" style="background: #dcfce7; color: #16a34a;">S</div>
+                                <div class="email-content">
+                                    <div class="email-header">
+                                        <span class="email-sender">Spotify</span>
+                                        <span class="email-time">12:59 PM</span>
+                                    </div>
+                                    <div class="email-subject">Your weekly update is here</div>
+                                </div>
+                            </div>
+                            <div class="email-item">
+                                <div class="email-avatar" style="background: #ccfbf1; color: #0d9488;">U</div>
+                                <div class="email-content">
+                                    <div class="email-header">
+                                        <span class="email-sender">Unstop</span>
+                                        <span class="email-time">12:37 PM</span>
+                                    </div>
+                                    <div class="email-subject">Application status updated</div>
+                                </div>
+                            </div>
+                            <div class="email-item">
+                                <div class="email-avatar" style="background: #e0e7ff; color: #4338ca;">A</div>
+                                <div class="email-content">
+                                    <div class="email-header">
+                                        <span class="email-sender">ASUS India</span>
+                                        <span class="email-time">10:15 AM</span>
+                                    </div>
+                                    <div class="email-subject">Exclusive offers for you</div>
+                                </div>
+                            </div>
+                            <div class="email-item">
+                                <div class="email-avatar" style="background: #ccfbf1; color: #0d9488;">U</div>
+                                <div class="email-content">
+                                    <div class="email-header">
+                                        <span class="email-sender">Unstop</span>
+                                        <span class="email-time">9:54 AM</span>
+                                    </div>
+                                    <div class="email-subject">New opportunity for you</div>
+                                </div>
+                            </div>
+                            <div class="email-item">
+                                <div class="email-avatar" style="background: #fef08a; color: #ca8a04;">A</div>
+                                <div class="email-content">
+                                    <div class="email-header">
+                                        <span class="email-sender">Amazon.in</span>
+                                        <span class="email-time">7:54 AM</span>
+                                    </div>
+                                    <div class="email-subject">Your order has been delivered</div>
+                                </div>
+                            </div>
+                            <div class="email-item">
+                                <div class="email-avatar" style="background: #ede9fe; color: #7c3aed;">M</div>
+                                <div class="email-content">
+                                    <div class="email-header">
+                                        <span class="email-sender">MyFitnessPal</span>
+                                        <span class="email-time">3:00 AM</span>
+                                    </div>
+                                    <div class="email-subject">Your weekly progress report</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COLUMN 2: Email Viewer -->
+                    <div class="card" style="display: flex; flex-direction: column; height: 100%; overflow: hidden; border-radius: var(--radius-lg);">
+                        <!-- Toolbar -->
+                        <div class="viewer-toolbar" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; border-bottom: 1px solid var(--border-light);">
+                            <div style="display: flex; gap: 16px; color: var(--text-secondary);">
+                                <i class="fa-solid fa-arrow-left toolbar-icon"></i>
+                                <i class="fa-solid fa-box-archive toolbar-icon"></i>
+                                <i class="fa-regular fa-trash-can toolbar-icon"></i>
+                                <i class="fa-regular fa-folder toolbar-icon"></i>
+                                <i class="fa-solid fa-tag toolbar-icon"></i>
+                                <i class="fa-regular fa-envelope toolbar-icon"></i>
+                                <i class="fa-solid fa-ellipsis toolbar-icon"></i>
+                            </div>
+                            <div style="display: flex; gap: 16px; color: var(--text-secondary);">
+                                <i class="fa-solid fa-chevron-left toolbar-icon"></i>
+                                <i class="fa-solid fa-chevron-right toolbar-icon"></i>
+                            </div>
+                        </div>
+
+                        <!-- Email Header -->
+                        <div style="padding: 24px 32px 16px 32px;">
+                            <h2 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 16px; color: var(--text-primary);">Get 50% off Pro</h2>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <div>
+                                    <span style="font-weight: 700; color: var(--text-primary); font-size: 0.9rem;">From: Codecademy</span>
+                                    <span style="color: var(--text-tertiary); font-size: 0.85rem; margin-left: 4px;">&lt;learn@itr.mail.codecademy.com&gt;</span>
+                                </div>
+                                <div style="color: var(--text-tertiary); font-size: 0.85rem;">Sat, 16 May 2026 14:22:52 +0000</div>
+                            </div>
+                        </div>
+
+                        <!-- Email Body -->
+                        <div style="flex: 1; overflow-y: auto; padding: 16px 32px 32px 32px; color: var(--text-primary); font-size: 0.95rem; line-height: 1.6;">
+                            <p style="margin-bottom: 24px;">Time ("ET") and ends at 11:59:59 pm ET on May 18, 2026. Discount is only applicable to new annual subscription plans (excluding Codecademy Plus, Student, Teams, and All Access), and cannot be combined with any other offer. Discount applies to the first year of a new subscription, after which the subscription will auto-renew for subsequent years at the regular price. Code valid one time only. Discount applies to certain products and not all products are available in all countries. Discount is not applicable to taxes. Codecademy reserves the right to modify or cancel this promotion at any time without notice. Any subscription plan purchases are subject to Codecademy's Terms of Service.</p>
+                            <p style="margin-bottom: 32px; font-size: 0.85rem; color: var(--text-secondary);">View Web Version | Email Preferences | Unsubscribe | Privacy Policy<br>Copyright Codecademy. All rights reserved. 300 Innovative Way, Suite 2210, Nashua, NH 03062</p>
+
+                            <!-- Promotional Banner Mockup -->
+                            <div style="background: #0f172a; border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-md);">
+                                <div style="padding: 24px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                    <div style="color: white; font-family: monospace; font-size: 1.5rem; font-weight: bold; letter-spacing: 2px;">code<span style="color: #a78bfa;">cademy</span></div>
+                                </div>
+                                <div style="background: #fef3c7; padding: 48px 24px; text-align: center;">
+                                    <div style="display: inline-block; border: 2px solid #0f172a; border-radius: 999px; padding: 6px 16px; font-weight: 700; font-size: 0.85rem; margin-bottom: 16px;">MAY 13-18</div>
+                                    <h1 style="font-size: 4rem; font-weight: 900; margin: 0 0 16px 0; color: #0f172a; line-height: 1;">50% off Pro</h1>
+                                    <p style="font-size: 1.1rem; color: #334155; font-weight: 500;">Upgrade your learning experience with 50% off on Pro.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COLUMN 3: AI Orchestration -->
+                    <div style="display: flex; flex-direction: column; gap: 20px; height: 100%; overflow-y: auto; padding-right: 4px;">
+                        
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+                            <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--primary); font-size: 1.2rem;"></i>
+                            <h2 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin: 0;">AI Orchestration</h2>
+                        </div>
+
+                        <!-- Executive Summary -->
+                        <div class="card" style="padding: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <i class="fa-solid fa-microchip" style="color: var(--primary);"></i>
+                                    <h3 style="font-size: 0.9rem; font-weight: 700; margin: 0;">Executive Summary</h3>
+                                </div>
+                                <span class="badge" style="background: #dcfce7; color: #16a34a; font-size: 0.65rem; padding: 2px 8px;">LOW</span>
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 24px;">AI processing unavailable or failed.</p>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; text-align: center;">
+                                <div>
+                                    <div style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary);">0%</div>
+                                    <div style="font-size: 0.7rem; color: var(--text-tertiary); font-weight: 600;">Trust</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary);">0%</div>
+                                    <div style="font-size: 0.7rem; color: var(--text-tertiary); font-weight: 600;">Confidence</div>
+                                </div>
+                                <div style="display: flex; align-items: center; justify-content: center;">
+                                    <div style="background: var(--bg-base); border-radius: var(--radius-sm); padding: 6px 10px; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); display: flex; align-items: center; gap: 6px;">
+                                        <i class="fa-regular fa-comment-dots"></i> Neutral
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Intent & Reasoning -->
+                        <div class="card" style="padding: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <i class="fa-solid fa-crosshairs" style="color: var(--text-primary);"></i>
+                                    <h3 style="font-size: 0.9rem; font-weight: 700; margin: 0;">Intent & Reasoning</h3>
+                                </div>
+                                <span class="badge" style="background: #f3e8ff; color: #9333ea; font-size: 0.65rem; padding: 2px 8px;">Unknown</span>
+                            </div>
+                            <div style="background: #faf5ff; border-radius: var(--radius-sm); padding: 12px; border: 1px solid #f3e8ff;">
+                                <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Intent: Unknown</div>
+                                <div style="font-size: 0.75rem; color: #9333ea; font-style: italic;"><i class="fa-solid fa-bolt" style="margin-right: 4px;"></i>System was unable to analyze this email.</div>
+                            </div>
+                        </div>
+
+                        <!-- Recommended Actions -->
+                        <div class="card" style="padding: 20px;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                                <i class="fa-solid fa-bolt" style="color: var(--text-primary);"></i>
+                                <h3 style="font-size: 0.9rem; font-weight: 700; margin: 0;">Recommended Actions</h3>
+                            </div>
+                            <div style="text-align: center; margin-bottom: 16px;">
+                                <p style="font-size: 0.85rem; color: var(--text-secondary);">No automated actions required.</p>
+                            </div>
+                            <button class="btn" style="width: 100%; border: 1px dashed var(--border-medium); background: transparent; color: var(--text-secondary); transition: all 0.2s;">+ Add Rule</button>
+                        </div>
+
+                        <!-- Email Actions -->
+                        <div>
+                            <h3 style="font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 12px;">Email Actions</h3>
+                            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                                <div class="action-mini-btn card">
+                                    <i class="fa-solid fa-reply"></i>
+                                    <span>Reply</span>
+                                </div>
+                                <div class="action-mini-btn card">
+                                    <i class="fa-solid fa-share"></i>
+                                    <span>Forward</span>
+                                </div>
+                                <div class="action-mini-btn card">
+                                    <i class="fa-solid fa-box-archive"></i>
+                                    <span>Archive</span>
+                                </div>
+                                <div class="action-mini-btn card">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                    <span>Delete</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+            
+            <!-- Bottom fixed status strip -->
+            <div style="position: fixed; bottom: 20px; left: 24px; z-index: 100;">
+                <div style="display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary);">
+                    <i class="fa-solid fa-microchip" style="color: var(--text-tertiary);"></i>
+                    <span>flowzint AI Engine</span>
+                    <div style="display: flex; align-items: center; gap: 4px; margin-left: 12px;">
+                        <div style="width: 6px; height: 6px; background: var(--success); border-radius: 50%;"></div>
+                        <span style="color: var(--text-primary);">Active</span>
+                    </div>
+                </div>
+            </div>
+</main>
+
+    </div>
+
+    <!-- Floating Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbot-toggle">
+        <i class="fa-solid fa-face-smile"></i>
+        <div class="chatbot-glow"></div>
+    </div>
+
+    <div class="chatbot-popup glass-panel" id="chatbot-popup">
+        <div class="chatbot-header">
+            <div class="chatbot-avatar"><i class="fa-solid fa-robot"></i></div>
+            <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Flowzint AI</div>
+                <div style="font-size: 0.75rem; opacity: 0.9;">System Online</div>
+            </div>
+            <i class="fa-solid fa-xmark" id="chatbot-close" style="cursor: pointer; margin-left: auto; font-size: 1.2rem;"></i>
+        </div>
+        <div class="chatbot-body">
+            <div class="chat-message ai">Welcome to Audience Insights! I have evaluated your demographics matrix. Your core active volume is Male (60%) between 25-34. Increasing technology topics can optimize view duration.</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Ask Flowzint AI...">
+            <button><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="./gmail-agent.js"></script>
+</body>
+</html>

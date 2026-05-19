@@ -1,0 +1,156 @@
+/* gmail-agent.css */
+
+.tabs-row {
+    display: flex;
+    gap: 16px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.tab {
+    padding-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.tab:hover {
+    color: var(--text-primary);
+}
+
+.tab.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+    font-weight: 700;
+}
+
+.email-list {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-medium) transparent;
+}
+
+.email-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.email-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 10px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-bottom: 2px;
+}
+
+.email-item:hover {
+    background: var(--bg-surface);
+    box-shadow: var(--shadow-sm);
+}
+
+.email-item.active {
+    background: var(--primary-bg);
+}
+
+.email-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.email-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.email-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+}
+
+.email-sender {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.email-time {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    font-weight: 600;
+}
+
+.email-subject {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.toolbar-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.toolbar-icon:hover {
+    background: var(--bg-base);
+    color: var(--text-primary);
+}
+
+.action-mini-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-light);
+}
+
+.action-mini-btn i {
+    font-size: 1.1rem;
+}
+
+.action-mini-btn span {
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.action-mini-btn:hover {
+    background: var(--bg-base);
+    color: var(--primary);
+    border-color: var(--border-medium);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+    background: var(--bg-base) !important;
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}

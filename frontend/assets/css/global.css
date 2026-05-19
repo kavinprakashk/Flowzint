@@ -1,0 +1,177 @@
+/* global.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* Color Palette - Premium Light SaaS */
+    --bg-base: #f7f8fa; /* Soft off-white background */
+    --bg-surface: #ffffff; /* Pure white cards */
+    
+    --primary: #6338f0;
+    --primary-gradient: linear-gradient(135deg, #6338f0, #a076f9);
+    --primary-light: #7a52f4;
+    --primary-bg: #f3f0ff;
+    --primary-glow: rgba(99, 56, 240, 0.25);
+    
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --text-tertiary: #9ca3af;
+    
+    --border-light: #f3f4f6;
+    --border-medium: #e5e7eb;
+    
+    --success: #10b981;
+    --success-bg: #ecfdf5;
+    
+    --danger: #ef4444;
+    --danger-bg: #fef2f2;
+    
+    --warning: #f59e0b;
+    --warning-bg: #fffbeb;
+    
+    --info: #3b82f6;
+
+    --font-sans: 'Inter', sans-serif;
+    
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+    --radius-pill: 9999px;
+
+    /* Compact SaaS Spacing Scale */
+    --space-xs: 6px;
+    --space-sm: 10px;
+    --space-md: 14px;
+    --space-lg: 18px;
+    --space-xl: 24px;
+    
+    /* Elegant SaaS Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.02);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.03);
+    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.04);
+    --shadow-floating: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-medium); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-tertiary); }
+
+/* Premium Cards */
+.card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: var(--shadow-floating);
+}
+
+/* Typography Hierarchy */
+.text-gradient {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.heading-xl { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; color: var(--text-primary); }
+.heading-lg { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text-primary); }
+.heading-md { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); }
+.text-sm { font-size: 0.875rem; color: var(--text-secondary); }
+.text-xs { font-size: 0.75rem; color: var(--text-tertiary); }
+
+/* Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+/* Premium Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    outline: none;
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    color: white;
+    box-shadow: 0 4px 15px var(--primary-glow);
+    border-radius: var(--radius-md);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(99, 56, 240, 0.4);
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+}
+
+/* Icons Containers */
+.icon-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+}
+.icon-purple { background: var(--primary-bg); color: var(--primary); }
+.icon-blue { background: #eff6ff; color: #3b82f6; }
+.icon-pink { background: #fdf2f8; color: #ec4899; }
+.icon-orange { background: #fff7ed; color: #f97316; }
+
+/* Subtle Animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(99, 56, 240, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(99, 56, 240, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(99, 56, 240, 0); }
+}
